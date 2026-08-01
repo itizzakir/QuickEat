@@ -1,30 +1,25 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useAuth } from "../contexts/AuthContext";
-import { Search, Edit, Trash2 } from "lucide-react";
-import Modal from "./Modal";
-import { mockApi } from "../services/mockApi";
+import { Loader2, ShieldCheck, ShieldOff, ExternalLink } from "lucide-react";
+import { toast } from "sonner";
+
+import { adminApi, apiErrorMessage } from "../services/api";
 
 export default function DeliveryManagement() {
-  const { user } = useAuth();
-
   const [partners, setPartners] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedPartner, setSelectedPartner] = useState(null);
+  const [busyId, setBusyId] = useState(null);
 
   const fetchPartners = useCallback(async () => {
     setIsLoading(true);
     setError("");
     try {
-      const allUsers = await mockApi.getAllUsers();
-      // Filter for delivery partners locally for now, assuming role field
-      const deliveryPartners = allUsers.filter(u => u.role === 'DELIVERY_PARTNER');
-      setPartners(deliveryPartners);
+      // Joins User with the DeliveryInfo row that signup writes and nothing ever displayed.
+      setPartners(await adminApi.deliveryPartners());
     } catch (err) {
-      setError(err.message);
+      setError(apiErrorMessage(err, "Could not load delivery partners"));
     } finally {
       setIsLoading(false);
     }
@@ -34,84 +29,88 @@ export default function DeliveryManagement() {
     fetchPartners();
   }, [fetchPartners]);
 
-  const handleEdit = (partner) => {
-    setSelectedPartner({ ...partner }); // Create a copy for editing
-    setIsModalOpen(true);
-  };
-
-  const handleDelete = async (partnerToDelete) => {
-    if (window.confirm(`Are you sure you want to delete the partner: ${partnerToDelete.name}?`)) {
-      try {
-        setPartners(prev => prev.filter(p => p.id !== partnerToDelete.id));
-      } catch (err) {
-        alert(`Error deleting partner: ${err.message}`);
-      }
-    }
-  };
-  
-  const handleSaveChanges = async (e) => {
-    e.preventDefault();
-    if (!selectedPartner) return;
-
+  const handleToggleEnabled = async (partner) => {
+    setBusyId(partner.userId);
     try {
-      // Mock update
-      setPartners(prev => prev.map(p => (p.id === selectedPartner.id ? selectedPartner : p)));
-      setIsModalOpen(false);
-      setSelectedPartner(null);
+      const saved = await adminApi.setUserEnabled(partner.userId, !partner.active);
+      toast.success(`${saved.fullName} ${saved.enabled ? "reinstated" : "suspended"}`);
+      fetchPartners();
     } catch (err) {
-      alert(`Error updating partner: ${err.message}`);
+      toast.error(apiErrorMessage(err, "Could not change that account"));
+    } finally {
+      setBusyId(null);
     }
   };
 
-    const handleProfileChange = (e) => {
-    const { name, value } = e.target;
-    setSelectedPartner(prev => ({
-        ...prev,
-        deliveryPartnerProfile: {
-            ...prev.deliveryPartnerProfile,
-            [name]: value
-        }
-    }));
-  };
-
- return (
+  return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-4">Delivery Partners</h2>
 
       {error && <div className="text-red-500 bg-red-100 p-3 rounded-md mb-4">{error}</div>}
-      
+
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white text-left">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Vehicle Type</th>
-              <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Vehicle Registration Number</th>
-              <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">License Number</th>
-              <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Zone</th>
-              <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Vehicle</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Registration</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Licence</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Zone</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">ID proof</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Account</th>
+              <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {isLoading ? (
-              <tr><td colSpan="6" className="text-center py-4 px-6">Loading...</td></tr>
+              <tr><td colSpan="9" className="text-center py-6"><Loader2 className="animate-spin h-6 w-6 mx-auto text-gray-400" /></td></tr>
+            ) : partners.length === 0 ? (
+              <tr><td colSpan="9" className="text-center py-6 text-gray-500">No delivery partners registered yet.</td></tr>
             ) : (
-              partners.map(partner => (
-                <tr key={partner.id}>
-                  <td className="px-6 py-4 whitespace-nowrap">{partner.name}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{partner.deliveryPartnerProfile?.vehicleType || 'N/A'}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{partner.deliveryPartnerProfile?.vehicleRegistrationNumber || 'N/A'}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{partner.deliveryPartnerProfile?.licenseNumber || 'N/A'}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">{partner.deliveryPartnerProfile?.zone || 'N/A'}</td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                     <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${partner.available ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
-                      {partner.available ? 'Approved' : 'Pending'}
+              partners.map((partner) => (
+                <tr key={partner.userId}>
+                  <td className="px-4 py-4 whitespace-nowrap">
+                    <p className="font-medium">{partner.fullName}</p>
+                    <span className={`px-2 py-0.5 text-xs font-semibold rounded-full ${partner.available ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-600"}`}>
+                      {partner.available ? "Online" : "Offline"}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button onClick={() => handleEdit(partner)} className="text-indigo-600 hover:text-indigo-900 mr-2"><Edit size={18} /></button>
-                    <button onClick={() => handleDelete(partner)} className="text-red-600 hover:text-red-900"><Trash2 size={18} /></button>
+                  <td className="px-4 py-4 text-sm">
+                    <p>{partner.email}</p>
+                    <p className="text-gray-500">{partner.mobile || "—"}</p>
+                  </td>
+                  <td className="px-4 py-4 text-sm whitespace-nowrap">
+                    <p>{partner.vehicleType || "—"}</p>
+                    <p className="text-gray-500">{partner.vehicleModel || ""}</p>
+                  </td>
+                  <td className="px-4 py-4 text-sm">{partner.vehicleRegistrationNumber || "—"}</td>
+                  <td className="px-4 py-4 text-sm">{partner.licenseNumber || "—"}</td>
+                  <td className="px-4 py-4 text-sm">{partner.deliveryZone || "—"}</td>
+                  <td className="px-4 py-4 text-sm">
+                    {partner.idProofUrl ? (
+                      <a href={partner.idProofUrl} target="_blank" rel="noreferrer" className="text-indigo-600 hover:text-indigo-800 inline-flex items-center gap-1">
+                        View <ExternalLink size={14} />
+                      </a>
+                    ) : "—"}
+                  </td>
+                  <td className="px-4 py-4 whitespace-nowrap">
+                    <span className={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${partner.active ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
+                      {partner.active ? "Active" : "Suspended"}
+                    </span>
+                  </td>
+                  <td className="px-4 py-4 whitespace-nowrap text-sm font-medium">
+                    <button
+                      onClick={() => handleToggleEnabled(partner)}
+                      disabled={busyId === partner.userId}
+                      title={partner.active ? "Suspend account" : "Reinstate account"}
+                      className="text-amber-600 hover:text-amber-800 disabled:opacity-30"
+                    >
+                      {busyId === partner.userId
+                        ? <Loader2 size={18} className="animate-spin" />
+                        : (partner.active ? <ShieldOff size={18} /> : <ShieldCheck size={18} />)}
+                    </button>
                   </td>
                 </tr>
               ))
@@ -119,69 +118,6 @@ export default function DeliveryManagement() {
           </tbody>
         </table>
       </div>
-
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title="Edit Delivery Partner">
-        {selectedPartner && (
-          // The form now has a max height and will scroll if it's too long
-          <form onSubmit={handleSaveChanges} className="max-h-[70vh] overflow-y-auto p-1">
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold border-b pb-2">User Details</h3>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Name</label>
-                <input type="text" value={selectedPartner.name} onChange={e => setSelectedPartner({...selectedPartner, name: e.target.value})} className="input-field w-full" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" value={selectedPartner.email} onChange={e => setSelectedPartner({...selectedPartner, email: e.target.value})} className="input-field w-full" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Phone</label>
-                <input type="tel" value={selectedPartner.phone || ''} onChange={e => setSelectedPartner({...selectedPartner, phone: e.target.value})} className="input-field w-full" />
-              </div>
-
-              <h3 className="text-lg font-semibold border-b pb-2 pt-4">Profile Details</h3>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">License Number</label>
-                <input type="text" name="licenseNumber" value={selectedPartner.deliveryPartnerProfile?.licenseNumber || ''} onChange={handleProfileChange} className="input-field w-full" />
-              </div>
-               <div>
-                <label className="block text-sm font-medium text-gray-700">Vehicle Type</label>
-                {/* ★★★ FIX 4: CORRECTLY HANDLE ENUM VALUES ★★★ */}
-                <select name="vehicleType" value={selectedPartner.deliveryPartnerProfile?.vehicleType || 'MOTORCYCLE'} onChange={handleProfileChange} className="input-field w-full">
-                  <option value="MOTORCYCLE">Motorcycle</option>
-                  <option value="SCOOTER">Scooter</option>
-                  <option value="CAR">Car</option>
-                  <option value="BICYCLE">Bicycle</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Vehicle Model</label>
-                <input type="text" name="vehicleModel" value={selectedPartner.deliveryPartnerProfile?.vehicleModel || ''} onChange={handleProfileChange} className="input-field w-full" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Vehicle Registration Number</label>
-                <input type="text" name="vehicleRegistrationNumber" value={selectedPartner.deliveryPartnerProfile?.vehicleRegistrationNumber || ''} onChange={handleProfileChange} className="input-field w-full" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Zone</label>
-                <input type="text" name="zone" value={selectedPartner.deliveryPartnerProfile?.zone || ''} onChange={handleProfileChange} className="input-field w-full" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">Approval Status</label>
-                <select value={selectedPartner.available} onChange={e => setSelectedPartner({...selectedPartner, available: e.target.value === 'true'})} className="input-field w-full">
-                  <option value={true}>Approved</option>
-                  <option value={false}>Pending</option>
-                </select>
-              </div>
-
-              <div className="flex justify-end space-x-2 pt-4">
-                <button type="button" onClick={() => setIsModalOpen(false)} className="btn-secondary">Cancel</button>
-                <button type="submit" className="btn-primary">Save Changes</button>
-              </div>
-            </div>
-          </form>
-        )}
-      </Modal>
     </div>
   );
 }

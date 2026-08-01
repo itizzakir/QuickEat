@@ -1,94 +1,162 @@
-# Food-Delivery-App
+# QuickBite
 
- 	QuickEats – Project Documentation
-The Vision: More Than Just an App
-Welcome to QuickEats – a platform created with a simple but powerful idea: bringing people closer through food.
-QuickEats isn’t just “another food delivery app.” It’s a digital bridge between restaurants, customers, and delivery partners built to be fast, intuitive, and community-focused.
-Think of it as a local version of Uber Eats or DoorDash, but with more transparency, flexibility, and control for everyone involved.
-Here’s who we built this for:
- Restaurant Owners: A digital storefront to showcase their food, manage orders, and grow their business.
+A food delivery application: browse restaurants, order, and track the order through the kitchen
+and out for delivery — with separate dashboards for customers, restaurant owners, delivery
+partners and administrators.
 
-Customers: A quick, easy way to discover nearby favorites and get food delivered with zero hassle.
-Delivery Partners: A simple tool to earn on their own terms, with clear tasks and fair tracking.
-Administrators: A control center to keep the whole ecosystem healthy, safe, and running smoothly.
+```
+QuickBite/
+├─ food-delivery-backend/    Spring Boot 3.5.9 · Java 17 · MySQL 8 · Spring Security + JWT
+├─ food-delivery-frontend/   React 18 · Vite 7 · Tailwind 3 · React Router 6 · axios
+└─ docker-compose.yml        MySQL for local development
+```
 
-The Experience in Action (Screens + Flow)
-Let’s walk through the app journey as if you were using it:
-First Impressions
-Homepage – clean, modern, and welcoming. Right away, users can search for restaurants nearby.
+---
 
-Sign-In – simple and fast, because nobody wants to fight with forms when they’re hungry.
-Role-Based Sign-Up – one smart form, tailored depending on whether you’re a customer, restaurant, or delivery partner.
- 
-The Customer Journey
-Shopping Cart – add, remove, adjust quantities, see the total—clear and simple.
-Checkout & Payment – multiple payment options, all secure and smooth.
-Order Tracking – a live timeline from “Cooking” to “Delivered,” so customers never feel in the dark.
+## Quick start
 
-The Restaurant Dashboard
-Orders Hub – accept new orders, monitor ongoing ones, and streamline the kitchen workflow.
-Menu Management – add/edit dishes, prices, categories, and photos in seconds.
+```bash
+# 1. Database
+docker compose up -d                      # MySQL 8 on :3306, waits until healthy
 
-The Delivery Partner’s Hub
-Available Orders – see pickup and drop-off locations, accept jobs instantly.
-Earnings Dashboard – track completed deliveries and daily/weekly totals with full transparency.
+# 2. Backend  (http://localhost:8080)
+cd food-delivery-backend
+DB_PASSWORD=quickbite ./mvnw spring-boot:run
 
+# 3. Frontend (http://localhost:5173)
+cd food-delivery-frontend
+npm ci && npm run dev
+```
 
-The Admin Console
-User Management – view, edit, and manage all platform users.
-Restaurant Oversight – approve restaurants, verify info, and keep standards high.
-Delivery Partner Management – monitor and manage the delivery fleet.
+On first boot the seeder inserts 32 restaurants, ~300 menu items, 36 accounts and 10 sample
+orders. It is idempotent per record, so restarting never duplicates rows.
 
-Designed for Everyone
-🔹 Customers → Smooth ordering, multiple payment options, real-time tracking.
- 🔹 Restaurants → Full control of menus, orders, and branding.
- 🔹 Delivery Partners → Freedom, transparency, and fair earnings.
- 🔹 Admins → Total visibility across users, orders, and operations.
+From the repository root you can also run both servers at once:
 
-The Tech Behind QuickEats
-We didn’t just want this to look good—we wanted it to be rock solid too.
-Backend (Engine Room):
-Spring Boot (Java 17)
+```bash
+npm install          # installs `concurrently` only
+npm run dev          # backend + frontend together
+```
 
+**Prerequisites:** JDK 17+, Node 18+, and either Docker or a local MySQL 8.
 
-PostgreSQL (database)
-Spring Data JPA (data handling)
-Spring Security + JWT (authentication)
-Frontend (The Storefront):
-React.js (UI framework)
-React Router (navigation)
-Context API (state management)
-Tailwind CSS (responsive, modern design)
+---
 
-The Blueprint: How It All Fits
-Backend → Handles APIs, security, business logic, and database.
-Frontend → User-friendly interface with role-specific views.
-Separation of Concerns → Clean architecture ensures scalability and easier debugging.
+## Demo logins
 
-Getting Started: Run It Yourself 
-Prerequisites
-Java JDK 17+
-Node.js & npm
-MySQL running locally
-Git installed
+| Role | Email | Password |
+|---|---|---|
+| Admin | `admin@quickbite.com` | `admin123` |
+| Customer | `john@example.com` | `password` |
+| Restaurant | `owner@quickbite.com` | `password` |
+| Delivery | `delivery@quickbite.com` | `password` |
+| Restaurants 2–32 | `owner2@quickbite.com` … `owner32@quickbite.com` | `password` |
 
-Step 1: Backend Setup
-git clone https://github.com/ankulsingh221/Food-Delivery-App.git
-cd Food-Delivery-App/backend
-Create a MySQL database (e.g., food_delivery_db).
-Update application.properties with your DB URL, username, and password.
-Run the backend (FoodDeliveryAppApplication.java).
-Default URL → http://localhost:8080
+`owner@quickbite.com` owns restaurant #1 (Nizam's Biryani House). `owner1@quickbite.com` also
+exists but owns nothing — restaurant #1 is assigned to the documented demo login instead.
 
-Step 2: Frontend Setup
-cd Food-Delivery-App/frontend
-npm install
-Create .env.local file in /frontend with: 
-VITE_API_BASE_URL=http://localhost:8080
+---
 
-Start the frontend:
- npm run dev
-Open → http://localhost:5173
+## Environment variables
 
-That’s it—you’ve got QuickEats running on your machine!
+### Backend — see `food-delivery-backend/.env.example`
 
+| Variable | Default | Notes |
+|---|---|---|
+| `DB_URL` | `jdbc:mysql://localhost:3306/food_delivery_db?createDatabaseIfNotExist=true` | JDBC URL |
+| `DB_USERNAME` | `root` | |
+| `DB_PASSWORD` | `root` | Use `quickbite` with docker-compose |
+| `JWT_SECRET` | dev-only key | **Must be valid Base64** — decoded with `Decoders.BASE64`. Generate with `openssl rand -base64 64` |
+| `JWT_EXPIRATION_MS` | `86400000` | Token lifetime (24 h) |
+| `SEED_ENABLED` | `true` | `false` starts with an empty catalogue |
+| `CORS_ALLOWED_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` | Comma-separated. No wildcards — the API sends credentials |
+
+### Frontend — see `food-delivery-frontend/.env.example`
+
+| Variable | Default | Notes |
+|---|---|---|
+| `VITE_API_BASE_URL` | `http://localhost:8080` | Target of the Vite dev proxy for `/api/*` |
+
+Only `VITE_`-prefixed variables reach the browser, and everything in that file is bundled into
+the client — never put secrets there.
+
+---
+
+## Testing
+
+```bash
+# Backend — runs against in-memory H2, no database required
+cd food-delivery-backend && ./mvnw verify
+
+# Frontend
+cd food-delivery-frontend && npm run lint && npm test && npm run build
+```
+
+CI (`.github/workflows/ci.yml`) runs both on every push and pull request.
+
+---
+
+## API documentation
+
+With the backend running:
+
+- Swagger UI — <http://localhost:8080/swagger-ui.html>
+- OpenAPI JSON — <http://localhost:8080/v3/api-docs>
+
+Use **Authorize** in Swagger UI to paste a bearer token from `POST /api/auth/signin`.
+
+| Prefix | Purpose |
+|---|---|
+| `/api/auth` | Sign in / sign up, `me`, change password |
+| `/api/restaurants` | Public catalogue, owner's own restaurant, edit, order feed |
+| `/api/restaurants/{id}/menu` | Menu CRUD + availability toggle (owner or admin) |
+| `/api/cart` | The signed-in customer's cart |
+| `/api/orders` | Place orders, order history, kitchen-side status changes |
+| `/api/users/me/addresses` | Saved delivery addresses |
+| `/api/delivery` | Courier job board, assignments, earnings, profile |
+| `/api/admin` | Users, restaurants, delivery partners, platform stats |
+
+---
+
+## Order lifecycle
+
+```
+PENDING → CONFIRMED → PREPARING → READY_FOR_PICKUP → PICKED_UP → OUT_FOR_DELIVERY → DELIVERED
+                                                   ↘ CANCELLED
+```
+
+The legal transitions live in one place — the `EOrderStatus` enum — and both the restaurant and
+delivery endpoints validate against it. Restaurants drive the states up to `READY_FOR_PICKUP`;
+everything after that belongs to the assigned courier, who claims jobs from the delivery board.
+
+---
+
+## Features by role
+
+**Customers** — browse and filter restaurants, cart, checkout with saved addresses, live order
+tracking, order history, wishlist, profile and password management.
+
+**Restaurant owners** — order feed with status controls, full menu CRUD including an
+availability toggle, and editable restaurant details.
+
+**Delivery partners** — job board of unclaimed orders, one-tap accept, status handover,
+earnings for today and this week, vehicle/zone profile, online-offline switch.
+
+**Administrators** — paged user directory with search and role filters, suspend or delete
+accounts, create users of any role, approve or remove restaurants, delivery-partner roster,
+and real platform statistics.
+
+---
+
+## Notes on the design
+
+- **Authorisation is server-side.** The session in `localStorage` is a cache, not a source of
+  truth: the app revalidates it against `GET /api/auth/me` on every load, and the API
+  authorises every request independently. Editing the persisted role changes nothing.
+- **Prices are server-side.** Orders are priced from current menu rows; any total the client
+  sends is discarded, and an order may not span two restaurants.
+- **`spring.jpa.open-in-view=false`.** Lazy associations are fetched explicitly with
+  `@EntityGraph`. Note that Spring Data applies an entity graph as a *fetch* graph, so every
+  association a response touches must be named — including ones that are EAGER by mapping.
+- **Images are local.** Everything under `public/images/` is committed; nothing is hotlinked.
+  Cuisine tiles are generated by `scripts/generate-food-placeholders.mjs`.

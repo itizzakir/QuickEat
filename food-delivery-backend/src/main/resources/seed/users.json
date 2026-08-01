@@ -1,0 +1,334 @@
+[
+  {
+    "fullName": "Admin User",
+    "email": "admin@quickbite.com",
+    "password": "admin123",
+    "role": "ROLE_ADMIN",
+    "mobile": "+91 98300 11001",
+    "address": "QuickBite HQ, 4th Floor, Salt Lake Sector V, Kolkata 700091",
+    "avatarUrl": "/images/avatars/admin.svg"
+  },
+  {
+    "fullName": "John Doe",
+    "email": "john@example.com",
+    "password": "password",
+    "role": "ROLE_CUSTOMER",
+    "mobile": "+91 98300 11002",
+    "address": "Flat 3B, Rose Villa, Sonari, Jamshedpur 831011",
+    "avatarUrl": "/images/avatars/customer.svg"
+  },
+  {
+    "fullName": "Restaurant Owner",
+    "email": "owner@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 11003",
+    "address": "12-A, Char Minar Road, Old City, Hyderabad 500002",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Delivery Guy",
+    "email": "delivery@quickbite.com",
+    "password": "password",
+    "role": "ROLE_DELIVERY",
+    "mobile": "+91 98300 11004",
+    "address": "22, Station Road, Bistupur, Jamshedpur 831001",
+    "avatarUrl": "/images/avatars/delivery.svg",
+    "deliveryInfo": {
+      "vehicleType": "MOTORCYCLE",
+      "vehicleModel": "Honda Activa 6G",
+      "licenseNumber": "JH05 20190004521",
+      "vehicleRegistrationNumber": "JH05CJ4821",
+      "deliveryZone": "Jamshedpur - Bistupur & Sonari",
+      "idProofUrl": "/images/avatars/delivery.svg"
+    }
+  },
+  {
+    "fullName": "Nizam's Biryani House Owner",
+    "email": "owner1@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12001",
+    "address": "12-A, Char Minar Road, Old City, Hyderabad 500002",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Dum Pukht Legacy Owner",
+    "email": "owner2@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12002",
+    "address": "44, Nizamuddin East Market, New Delhi 110013",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Kolkata Biryani Club Owner",
+    "email": "owner3@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12003",
+    "address": "7, Park Circus Seven Point Crossing, Kolkata 700017",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Tandoori Nights Owner",
+    "email": "owner4@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12004",
+    "address": "88, Pandara Road Market, New Delhi 110003",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Punjabi Rasoi Owner",
+    "email": "owner5@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12005",
+    "address": "23, Fergusson College Road, Shivajinagar, Pune 411004",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Amritsari Dhaba Owner",
+    "email": "owner6@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12006",
+    "address": "NH-33, Mango Chowk, Jamshedpur 831012",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Coastal Curry Co. Owner",
+    "email": "owner7@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12007",
+    "address": "5, Sassoon Dock Road, Colaba, Mumbai 400005",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Dosa Junction Owner",
+    "email": "owner8@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12008",
+    "address": "18, 4th Block Jayanagar, Bengaluru 560011",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Madras Tiffin Room Owner",
+    "email": "owner9@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12009",
+    "address": "31, Mylapore Tank Road, Chennai 600004",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Kerala Kitchen Owner",
+    "email": "owner10@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12010",
+    "address": "62, Indiranagar 100 Feet Road, Bengaluru 560038",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Wok & Roll Owner",
+    "email": "owner11@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12011",
+    "address": "14, Tangra Christopher Road, Kolkata 700046",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Dragon Bowl Owner",
+    "email": "owner12@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12012",
+    "address": "9, Hill Road, Bandra West, Mumbai 400050",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Sichuan Street Owner",
+    "email": "owner13@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12013",
+    "address": "27, Green Park Main Market, New Delhi 110016",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Bombay Chinese Corner Owner",
+    "email": "owner14@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12014",
+    "address": "3, Lokhandwala Market, Andheri West, Mumbai 400053",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Napoli Pizza Kitchen Owner",
+    "email": "owner15@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12015",
+    "address": "56, Church Street, Bengaluru 560001",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Crust & Cheese Owner",
+    "email": "owner16@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12016",
+    "address": "21, Bistupur Main Road, Jamshedpur 831001",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Slice of Italy Owner",
+    "email": "owner17@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12017",
+    "address": "40, Koregaon Park Lane 5, Pune 411001",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Burger Barn Owner",
+    "email": "owner18@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12018",
+    "address": "11, Main Road Lalpur, Ranchi 834001",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Patty & Bun Co. Owner",
+    "email": "owner19@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12019",
+    "address": "8, Waterfield Road, Bandra West, Mumbai 400050",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Smash House Grill Owner",
+    "email": "owner20@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12020",
+    "address": "76, Road No. 12, Banjara Hills, Hyderabad 500034",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Taco Fiesta Owner",
+    "email": "owner21@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12021",
+    "address": "34, Koramangala 5th Block, Bengaluru 560095",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Burrito Bay Owner",
+    "email": "owner22@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12022",
+    "address": "17, Baner Road, Pune 411045",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Sushi Sakura Owner",
+    "email": "owner23@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12023",
+    "address": "12, Khan Market, New Delhi 110003",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Ramen Republic Owner",
+    "email": "owner24@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12024",
+    "address": "29, Indiranagar 12th Main, Bengaluru 560038",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Bangkok Spice Owner",
+    "email": "owner25@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12025",
+    "address": "45, Turner Road, Bandra West, Mumbai 400050",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Kebab Kingdom Owner",
+    "email": "owner26@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12026",
+    "address": "52, Masab Tank Main Road, Hyderabad 500028",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Shawarma Street Owner",
+    "email": "owner27@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12027",
+    "address": "6, Sakchi Bazaar Road, Jamshedpur 831001",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Green Bowl Salads Owner",
+    "email": "owner28@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12028",
+    "address": "72, HSR Layout Sector 2, Bengaluru 560102",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "The Waffle Works Owner",
+    "email": "owner29@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12029",
+    "address": "19, North Main Road, Koregaon Park, Pune 411001",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Sweet Tooth Bakery Owner",
+    "email": "owner30@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12030",
+    "address": "38, Park Street, Kolkata 700016",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Chai & Chaat Adda Owner",
+    "email": "owner31@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12031",
+    "address": "9, Firayalal Chowk, Ranchi 834001",
+    "avatarUrl": "/images/avatars/owner.svg"
+  },
+  {
+    "fullName": "Steel City Rolls Owner",
+    "email": "owner32@quickbite.com",
+    "password": "password",
+    "role": "ROLE_RESTAURANT",
+    "mobile": "+91 98300 12032",
+    "address": "25, Kadma Main Road, Jamshedpur 831005",
+    "avatarUrl": "/images/avatars/owner.svg"
+  }
+]

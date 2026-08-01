@@ -1,18 +1,13 @@
 package com.quickbite.food_delivery_backend.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "users", 
-       uniqueConstraints = { 
-           @UniqueConstraint(columnNames = "email") 
+@Table(name = "users",
+       uniqueConstraints = {
+           @UniqueConstraint(columnNames = "email")
        })
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +19,9 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    // Never serialised. Controllers return DTOs now, but this is the backstop that stops a
+    // BCrypt hash reaching a client if an entity is ever returned directly again.
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(nullable = false)
     private String password;
 
@@ -34,6 +32,12 @@ public class User {
     private String mobile;
     private String avatarUrl;
     private String address;
+
+    /**
+     * Lets an admin suspend an account instead of deleting it. Treated as enabled when null so
+     * that rows written before this column existed can still sign in.
+     */
+    private Boolean enabled = Boolean.TRUE;
 
     public User() {
     }
@@ -69,4 +73,10 @@ public class User {
 
     public String getAddress() { return address; }
     public void setAddress(String address) { this.address = address; }
+
+    public Boolean getEnabled() { return enabled; }
+    public void setEnabled(Boolean enabled) { this.enabled = enabled; }
+
+    /** Null-safe view of {@link #enabled}: only an explicit false suspends the account. */
+    public boolean isActive() { return !Boolean.FALSE.equals(enabled); }
 }

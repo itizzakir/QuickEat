@@ -37,7 +37,15 @@ const RestaurantCard = ({ restaurant, onClick, isTopRestaurant = false }) => {
       </button>
 
       <div className="relative">
-        <img src={restaurant.image || "/placeholder.svg"} alt={restaurant.name} className="w-full h-48 object-cover" />
+        <img
+          src={restaurant.image || "/placeholder.svg"}
+          alt={restaurant.name}
+          className="w-full h-48 object-cover"
+          onError={(e) => {
+            e.currentTarget.onerror = null;
+            e.currentTarget.src = "/placeholder.svg";
+          }}
+        />
         {restaurant.promoted && (
           <div className="absolute bottom-2 left-2 bg-orange-500 text-white px-2 py-1 rounded text-xs font-semibold">
             PROMOTED

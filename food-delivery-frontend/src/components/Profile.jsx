@@ -3,7 +3,10 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { userService } from "../services/userService";
-import { User, Mail, Phone, Lock, Save, Camera, Loader2, MapPin } from "lucide-react";
+import { authApi, apiErrorMessage } from "../services/api";
+import AddressBook from "./AddressBook";
+import { toast } from "sonner";
+import { User, Mail, Phone, Lock, Save, Camera, Loader2 } from "lucide-react";
 
 export default function Profile() {
   const { user: authUser, updateUser } = useAuth(); // Get authenticated user basic info
@@ -15,6 +18,14 @@ export default function Profile() {
     avatarUrl: "",
     address: "",
   });
+
+  const [passwordForm, setPasswordForm] = useState({
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
+  const [passwordMessage, setPasswordMessage] = useState({ type: "", text: "" });
+  const [isChangingPassword, setIsChangingPassword] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -44,6 +55,36 @@ export default function Profile() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfile((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handlePasswordFieldChange = (e) => {
+    const { name, value } = e.target;
+    setPasswordForm((prev) => ({ ...prev, [name]: value }));
+    setPasswordMessage({ type: "", text: "" });
+  };
+
+  const handlePasswordChange = async (e) => {
+    e.preventDefault();
+    if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+      setPasswordMessage({ type: "error", text: "New passwords do not match." });
+      return;
+    }
+
+    setIsChangingPassword(true);
+    setPasswordMessage({ type: "", text: "" });
+    try {
+      await authApi.changePassword({
+        currentPassword: passwordForm.currentPassword,
+        newPassword: passwordForm.newPassword,
+      });
+      setPasswordForm({ currentPassword: "", newPassword: "", confirmPassword: "" });
+      setPasswordMessage({ type: "success", text: "Password updated." });
+      toast.success("Password updated");
+    } catch (err) {
+      setPasswordMessage({ type: "error", text: apiErrorMessage(err, "Could not update your password") });
+    } finally {
+      setIsChangingPassword(false);
+    }
   };
 
   const handleProfileUpdate = async (e) => {
@@ -89,9 +130,13 @@ export default function Profile() {
           <div className="relative -mt-16 mb-6 inline-block">
             <div className="h-32 w-32 rounded-full border-4 border-white bg-white overflow-hidden shadow-md">
               <img
-                src={profile.avatarUrl || `https://ui-avatars.com/api/?name=${profile.fullName}&background=random`}
+                src={profile.avatarUrl || "/images/avatars/customer.svg"}
                 alt={profile.fullName}
                 className="h-full w-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/images/avatars/customer.svg";
+                }}
               />
             </div>
             <button className="absolute bottom-2 right-2 p-2 bg-white rounded-full shadow-lg hover:bg-gray-50 transition-colors text-gray-600">
@@ -149,20 +194,7 @@ export default function Profile() {
                   />
                 </div>
               </div>
-              <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Delivery Address</label>
-                <div className="relative">
-                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <input
-                    type="text"
-                    name="address"
-                    value={profile.address}
-                    onChange={handleChange}
-                    placeholder="Enter your delivery address"
-                    className="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
-                  />
-                </div>
-              </div>
+
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                 <div className="relative">
@@ -204,22 +236,68 @@ export default function Profile() {
           </form>
         </div>
 
-        {/* Security Settings - Placeholder for now */}
+        {/* Saved addresses — structured rows, replacing the comma-joined blob */}
+        <div className="md:col-span-2 bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <AddressBook />
+        </div>
+
+        {/* Security — wired to POST /api/auth/change-password */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 h-fit">
           <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
             <Lock className="h-5 w-5 text-primary-500" />
             Security
           </h2>
-          <form className="space-y-4">
+
+          {passwordMessage.text && (
+            <div className={`p-3 mb-4 rounded-lg text-sm ${passwordMessage.type === 'success' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
+              {passwordMessage.text}
+            </div>
+          )}
+
+          <form className="space-y-4" onSubmit={handlePasswordChange}>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
-              <input type="password" disabled placeholder="••••••••" className="w-full px-4 py-2 rounded-lg border border-gray-200 bg-gray-50" />
+              <input
+                type="password"
+                name="currentPassword"
+                value={passwordForm.currentPassword}
+                onChange={handlePasswordFieldChange}
+                placeholder="••••••••"
+                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+                required
+              />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
-              <input type="password" disabled placeholder="••••••••" className="w-full px-4 py-2 rounded-lg border border-gray-200 bg-gray-50" />
+              <input
+                type="password"
+                name="newPassword"
+                value={passwordForm.newPassword}
+                onChange={handlePasswordFieldChange}
+                placeholder="At least 6 characters"
+                minLength={6}
+                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+                required
+              />
             </div>
-            <button type="button" disabled className="w-full py-2 bg-gray-100 text-gray-400 rounded-lg cursor-not-allowed font-medium">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                value={passwordForm.confirmPassword}
+                onChange={handlePasswordFieldChange}
+                placeholder="Repeat the new password"
+                className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={isChangingPassword}
+              className="w-full py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 font-medium disabled:opacity-60 flex items-center justify-center gap-2"
+            >
+              {isChangingPassword && <Loader2 className="animate-spin h-4 w-4" />}
               Update Password
             </button>
           </form>

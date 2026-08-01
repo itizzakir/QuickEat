@@ -1,6 +1,7 @@
 package com.quickbite.food_delivery_backend.models;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,10 @@ public class Restaurant {
     @Column(nullable = false)
     private String name;
 
+    @Column(length = 1000)
+    private String description;
+
+    private String address;
     private String image;
     private Double rating;
     private Integer deliveryTime; // In minutes
@@ -21,11 +26,17 @@ public class Restaurant {
     private String deliveryFee;
     private String discount;
 
+    /** Admin moderation flag. Read null-safely — rows created before this column existed are null. */
+    private Boolean approved = Boolean.FALSE;
+
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MenuItem> menu = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
+    // GET /api/restaurants is public (permitAll), so the owner's name, email, mobile and
+    // address must never ride along with it.
+    @JsonIgnore
     private User owner;
 
     public Restaurant() {
@@ -48,6 +59,12 @@ public class Restaurant {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+
     public String getImage() { return image; }
     public void setImage(String image) { this.image = image; }
 
@@ -65,6 +82,9 @@ public class Restaurant {
 
     public String getDiscount() { return discount; }
     public void setDiscount(String discount) { this.discount = discount; }
+
+    public Boolean getApproved() { return approved; }
+    public void setApproved(Boolean approved) { this.approved = approved; }
 
     public List<MenuItem> getMenu() { return menu; }
     public void setMenu(List<MenuItem> menu) { this.menu = menu; }

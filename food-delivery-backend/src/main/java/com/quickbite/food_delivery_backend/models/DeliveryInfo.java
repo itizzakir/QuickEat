@@ -34,6 +34,9 @@ public class DeliveryInfo {
     
     private String idProofUrl;
 
+    /** Whether the courier is currently accepting jobs. Null is treated as available. */
+    private Boolean available = Boolean.TRUE;
+
     public DeliveryInfo(User user, String vehicleType, String vehicleModel, String licenseNumber, 
                         String vehicleRegistrationNumber, String deliveryZone, String idProofUrl) {
         this.user = user;
@@ -69,4 +72,10 @@ public class DeliveryInfo {
     
     public String getIdProofUrl() { return idProofUrl; }
     public void setIdProofUrl(String idProofUrl) { this.idProofUrl = idProofUrl; }
+
+    public Boolean getAvailable() { return available; }
+    public void setAvailable(Boolean available) { this.available = available; }
+
+    /** Null-safe view: only an explicit false marks the courier offline. */
+    public boolean isAvailable() { return !Boolean.FALSE.equals(available); }
 }

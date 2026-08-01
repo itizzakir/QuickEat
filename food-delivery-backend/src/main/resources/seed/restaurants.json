@@ -1,0 +1,3114 @@
+[
+  {
+    "name": "Nizam's Biryani House",
+    "description": "Slow-cooked Hyderabadi dum biryani from a kitchen that has guarded the same spice blend for three generations. Every handi is sealed with dough and opened at your table.",
+    "address": "12-A, Char Minar Road, Old City, Hyderabad 500002",
+    "image": "/images/food/chicken-biryani.jpg",
+    "rating": 4.8,
+    "deliveryTime": 38,
+    "deliveryFee": "FREE",
+    "discount": "50% OFF up to ₹100",
+    "category": "Biryani, Indian, Hyderabadi",
+    "ownerEmail": "owner@quickbite.com",
+    "menu": [
+      {
+        "name": "Hyderabadi Chicken Dum Biryani",
+        "description": "Long-grain basmati layered with saffron-marinated chicken and sealed in a handi to finish on slow coals.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/chicken-biryani.jpg"
+      },
+      {
+        "name": "Mutton Kacchi Biryani",
+        "description": "Raw mutton marinated overnight in papaya and yoghurt, then dum-cooked under a pastry seal.",
+        "price": 480.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/egg-biryani-platter.jpg"
+      },
+      {
+        "name": "Nizami Veg Dum Biryani",
+        "description": "Garden vegetables and paneer folded through fragrant rice with fried onion and mint.",
+        "price": 290.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": false,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Egg Dum Biryani",
+        "description": "Boiled eggs steeped in masala and layered through saffron rice.",
+        "price": 260.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Chicken 65",
+        "description": "Fiery Chettinad-style fried chicken tossed with curry leaf and green chilli.",
+        "price": 280.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/butter-chicken-curry.jpg"
+      },
+      {
+        "name": "Hyderabadi Haleem",
+        "description": "Slow-pounded wheat, lentils and mutton finished with fried onion and lime.",
+        "price": 320.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Bagara Rice",
+        "description": "Mildly spiced rice tempered with cashew, clove and bay leaf.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": false,
+        "image": "/images/food/tandoori-chicken.jpg"
+      },
+      {
+        "name": "Mirchi Ka Salan",
+        "description": "Long green chillies simmered in a tangy peanut and sesame gravy.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": true,
+        "image": "/images/food/paneer-tikka-sizzler.jpg"
+      },
+      {
+        "name": "Double Ka Meetha",
+        "description": "Fried bread soaked in cardamom milk and topped with toasted almond.",
+        "price": 140.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Irani Chai",
+        "description": "Strong milky tea brewed the way the old city cafes still do it.",
+        "price": 60.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Dum Pukht Legacy",
+    "description": "Awadhi cooking at its most patient — meats sealed in heavy pots and left to steam in their own juices. Rich, perfumed and unhurried.",
+    "address": "44, Nizamuddin East Market, New Delhi 110013",
+    "image": "/images/food/egg-biryani-platter.jpg",
+    "rating": 4.6,
+    "deliveryTime": 45,
+    "deliveryFee": "₹29",
+    "discount": "20% OFF",
+    "category": "Biryani, Mughlai, Indian",
+    "ownerEmail": "owner2@quickbite.com",
+    "menu": [
+      {
+        "name": "Awadhi Mutton Dum Biryani",
+        "description": "Lucknowi-style biryani perfumed with kewra, saffron and whole spice.",
+        "price": 520.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/chicken-biryani.jpg"
+      },
+      {
+        "name": "Murgh Dum Pukht Biryani",
+        "description": "Chicken and rice sealed together so every grain takes on the marinade.",
+        "price": 420.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/egg-biryani-platter.jpg"
+      },
+      {
+        "name": "Subz Dum Biryani",
+        "description": "Seasonal vegetables layered with rice, browned onion and rose water.",
+        "price": 300.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": false,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Galouti Kebab",
+        "description": "Melt-in-the-mouth minced mutton patties with a whisper of raw papaya.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Murgh Malai Tikka",
+        "description": "Chicken in a cream, cheese and white pepper marinade, gently charred.",
+        "price": 350.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/butter-chicken-curry.jpg"
+      },
+      {
+        "name": "Shahi Paneer",
+        "description": "Cottage cheese in a cashew and tomato gravy enriched with cream.",
+        "price": 320.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Nihari Gosht",
+        "description": "Overnight-simmered mutton shanks in a marrow-rich gravy.",
+        "price": 450.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/tandoori-chicken.jpg"
+      },
+      {
+        "name": "Sheermal",
+        "description": "Saffron-tinted flatbread, faintly sweet and brushed with ghee.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Breads",
+        "available": true,
+        "image": "/images/food/paneer-tikka-sizzler.jpg"
+      },
+      {
+        "name": "Phirni",
+        "description": "Ground rice set in cardamom milk and served chilled in clay.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Rooh Afza Sharbat",
+        "description": "Chilled rose sherbet, the classic Old Delhi cooler.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Kolkata Biryani Club",
+    "description": "The Calcutta school of biryani — lighter on spice, heavy on aroma, and always with that softly spiced potato.",
+    "address": "7, Park Circus Seven Point Crossing, Kolkata 700017",
+    "image": "/images/food/veg-pulao-bowl.jpg",
+    "rating": 4.5,
+    "deliveryTime": 34,
+    "deliveryFee": "FREE",
+    "discount": "Buy 1 Get 1",
+    "category": "Biryani, Bengali, Indian",
+    "ownerEmail": "owner3@quickbite.com",
+    "menu": [
+      {
+        "name": "Kolkata Chicken Biryani",
+        "description": "Delicately spiced rice with chicken, a boiled egg and the signature aloo.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/chicken-biryani.jpg"
+      },
+      {
+        "name": "Kolkata Mutton Biryani",
+        "description": "Tender mutton and golden potato in rose and kewra scented rice.",
+        "price": 460.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/egg-biryani-platter.jpg"
+      },
+      {
+        "name": "Aloo Dum Biryani",
+        "description": "The vegetarian classic, built around spiced baby potatoes.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": false,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Chicken Chaap",
+        "description": "Leg quarter braised in a nut and poppy seed gravy.",
+        "price": 300.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Mutton Rezala",
+        "description": "Pale, fragrant yoghurt curry finished with green chilli and mace.",
+        "price": 420.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/butter-chicken-curry.jpg"
+      },
+      {
+        "name": "Fish Kabiraji",
+        "description": "Bhetki fillet in a lacy egg net, fried to order.",
+        "price": 360.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Beguni",
+        "description": "Aubergine slices in a besan batter, crisp at the edges.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/tandoori-chicken.jpg"
+      },
+      {
+        "name": "Luchi & Cholar Dal",
+        "description": "Puffed flour bread with sweet-spiced Bengal gram.",
+        "price": 190.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/paneer-tikka-sizzler.jpg"
+      },
+      {
+        "name": "Mishti Doi",
+        "description": "Caramelised sweet yoghurt set in a terracotta cup.",
+        "price": 110.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Gondhoraj Ghol",
+        "description": "Salted buttermilk lifted with fragrant gondhoraj lime.",
+        "price": 80.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Tandoori Nights",
+    "description": "A charcoal tandoor kept at temperature from noon to midnight. Everything here arrives smoky, blistered and still hissing.",
+    "address": "88, Pandara Road Market, New Delhi 110003",
+    "image": "/images/food/tandoori-chicken.jpg",
+    "rating": 4.7,
+    "deliveryTime": 33,
+    "deliveryFee": "₹19",
+    "discount": "50% OFF up to ₹100",
+    "category": "Indian, North Indian, Tandoori",
+    "ownerEmail": "owner4@quickbite.com",
+    "menu": [
+      {
+        "name": "Tandoori Chicken (Full)",
+        "description": "Whole bird in a yoghurt and red chilli marinade, charred over coals.",
+        "price": 480.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/butter-chicken-curry.jpg"
+      },
+      {
+        "name": "Murgh Malai Tikka",
+        "description": "Cream and cheese marinated chicken, mild and smoky.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Paneer Tikka",
+        "description": "Thick paneer batons with capsicum and onion off the skewer.",
+        "price": 320.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/tandoori-chicken.jpg"
+      },
+      {
+        "name": "Seekh Kebab",
+        "description": "Minced mutton with herbs, moulded onto skewers and grilled.",
+        "price": 360.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/paneer-tikka-sizzler.jpg"
+      },
+      {
+        "name": "Tandoori Aloo",
+        "description": "Hollowed potatoes stuffed with spiced khoya and roasted.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Tandoori Pomfret",
+        "description": "Whole pomfret scored, marinated in ajwain and grilled.",
+        "price": 520.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Dal Makhani",
+        "description": "Black lentils simmered overnight with butter and cream.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Butter Naan",
+        "description": "Leavened flatbread off the tandoor wall, brushed with butter.",
+        "price": 60.0,
+        "vegetarian": true,
+        "category": "Breads",
+        "available": true,
+        "image": "/images/food/samosa.jpg"
+      },
+      {
+        "name": "Laccha Paratha",
+        "description": "Layered whole-wheat bread, flaky and pulled apart at the table.",
+        "price": 70.0,
+        "vegetarian": true,
+        "category": "Breads",
+        "available": true,
+        "image": "/images/food/chicken-biryani.jpg"
+      },
+      {
+        "name": "Gulab Jamun",
+        "description": "Warm milk dumplings in cardamom syrup.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Punjabi Rasoi",
+    "description": "Home-style Punjabi cooking with a generous hand on the butter. The gravies are ground fresh every morning.",
+    "address": "23, Fergusson College Road, Shivajinagar, Pune 411004",
+    "image": "/images/food/butter-chicken-curry.jpg",
+    "rating": 4.4,
+    "deliveryTime": 30,
+    "deliveryFee": "FREE",
+    "discount": "20% OFF",
+    "category": "Indian, North Indian",
+    "ownerEmail": "owner5@quickbite.com",
+    "menu": [
+      {
+        "name": "Butter Chicken",
+        "description": "Tandoor-roasted chicken in a velvety tomato and fenugreek gravy.",
+        "price": 390.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/butter-chicken-curry.jpg"
+      },
+      {
+        "name": "Dal Makhani",
+        "description": "Urad dal and rajma cooked low and slow with cream.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Shahi Paneer",
+        "description": "Paneer in a mildly sweet cashew gravy.",
+        "price": 320.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/tandoori-chicken.jpg"
+      },
+      {
+        "name": "Malai Kofta",
+        "description": "Potato and paneer dumplings in a saffron cream sauce.",
+        "price": 300.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/paneer-tikka-sizzler.jpg"
+      },
+      {
+        "name": "Chicken Curry",
+        "description": "Everyday home-style curry with ginger, garlic and whole spice.",
+        "price": 350.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Rajma Chawal",
+        "description": "Kidney beans in thick gravy over steamed rice.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Amritsari Kulcha",
+        "description": "Crisp stuffed bread served with chole and white butter.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Breads",
+        "available": false,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Tandoori Roti",
+        "description": "Whole-wheat bread straight off the tandoor.",
+        "price": 35.0,
+        "vegetarian": true,
+        "category": "Breads",
+        "available": true,
+        "image": "/images/food/samosa.jpg"
+      },
+      {
+        "name": "Sweet Lassi",
+        "description": "Thick churned yoghurt topped with malai.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Amritsari Dhaba",
+    "description": "A highway dhaba that never moved indoors. Charpoys outside, cast-iron kadhai inside, portions built for truckers.",
+    "address": "NH-33, Mango Chowk, Jamshedpur 831012",
+    "image": "/images/food/curry-with-naan.jpg",
+    "rating": 4.3,
+    "deliveryTime": 41,
+    "deliveryFee": "₹19",
+    "discount": "",
+    "category": "Indian, North Indian, Punjabi",
+    "ownerEmail": "owner6@quickbite.com",
+    "menu": [
+      {
+        "name": "Amritsari Fish Fry",
+        "description": "Ajwain-spiced river fish in a crisp gram flour crust.",
+        "price": 420.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/butter-chicken-curry.jpg"
+      },
+      {
+        "name": "Dhaba Chicken Masala",
+        "description": "Chicken on the bone in a fiery onion-tomato masala.",
+        "price": 360.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Chole Bhature",
+        "description": "Slow-cooked chickpeas with two puffed bhature.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/tandoori-chicken.jpg"
+      },
+      {
+        "name": "Sarson Da Saag",
+        "description": "Mustard greens with makki roti and a knob of white butter.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/paneer-tikka-sizzler.jpg"
+      },
+      {
+        "name": "Paneer Bhurji",
+        "description": "Crumbled paneer scrambled with onion, tomato and green chilli.",
+        "price": 290.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Kadhi Pakora",
+        "description": "Tangy yoghurt curry with soft gram flour fritters.",
+        "price": 210.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Aloo Paratha",
+        "description": "Stuffed potato bread served with butter and pickle.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Breads",
+        "available": false,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Pinni",
+        "description": "Wheat flour and jaggery laddoo rich with ghee and almond.",
+        "price": 100.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Salted Chaas",
+        "description": "Cumin-tempered buttermilk.",
+        "price": 60.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Coastal Curry Co.",
+    "description": "Konkan coast cooking driven by the morning catch — coconut, kokum and enough green chilli to keep it honest.",
+    "address": "5, Sassoon Dock Road, Colaba, Mumbai 400005",
+    "image": "/images/food/salmon-grain-bowl.jpg",
+    "rating": 4.6,
+    "deliveryTime": 36,
+    "deliveryFee": "₹29",
+    "discount": "20% OFF",
+    "category": "Indian, Seafood, Konkani",
+    "ownerEmail": "owner7@quickbite.com",
+    "menu": [
+      {
+        "name": "Bombil Fry",
+        "description": "Bombay duck in a rava crust, crisp outside and soft within.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/salmon-grain-bowl.jpg"
+      },
+      {
+        "name": "Prawn Koliwada",
+        "description": "Batter-fried prawns tossed in a tangy red masala.",
+        "price": 420.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Fish Curry Rice",
+        "description": "Kingfish in coconut and kokum gravy with steamed rice.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Crab Masala",
+        "description": "Whole crab cracked into a roasted coconut masala.",
+        "price": 550.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Surmai Tawa Fry",
+        "description": "Thick kingfish steaks griddled with recheado masala.",
+        "price": 480.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/chicken-biryani.jpg"
+      },
+      {
+        "name": "Prawn Biryani",
+        "description": "Malvani-spiced prawns layered through short-grain rice.",
+        "price": 460.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Veg Malvani Thali",
+        "description": "Seasonal vegetables, solkadhi, rice and bhakri.",
+        "price": 320.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/samosa.jpg"
+      },
+      {
+        "name": "Neer Dosa",
+        "description": "Lace-thin rice crepes, three to a plate.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Breads",
+        "available": true,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Kokum Sol Kadhi",
+        "description": "Coconut milk soured with kokum, served chilled.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      },
+      {
+        "name": "Ukadiche Modak",
+        "description": "Steamed rice dumplings filled with coconut and jaggery.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Dosa Junction",
+    "description": "A batter-first kitchen — ground on stone, fermented overnight, poured onto a griddle that has never been washed with soap.",
+    "address": "18, 4th Block Jayanagar, Bengaluru 560011",
+    "image": "/images/food/idli-with-chutney.jpg",
+    "rating": 4.5,
+    "deliveryTime": 24,
+    "deliveryFee": "FREE",
+    "discount": "Buy 1 Get 1",
+    "category": "Indian, South Indian",
+    "ownerEmail": "owner8@quickbite.com",
+    "menu": [
+      {
+        "name": "Masala Dosa",
+        "description": "Crisp rice crepe folded over spiced potato, with sambar and chutney.",
+        "price": 140.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/idli-with-chutney.jpg"
+      },
+      {
+        "name": "Mysore Masala Dosa",
+        "description": "Dosa smeared with fiery red garlic chutney before folding.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/south-indian-meal-platter.jpg"
+      },
+      {
+        "name": "Rava Dosa",
+        "description": "Lacy semolina crepe studded with onion, cumin and curry leaf.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Ghee Podi Dosa",
+        "description": "Dosa dusted with lentil podi and finished with nutty ghee.",
+        "price": 170.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Onion Uttapam",
+        "description": "Thick pancake with onion and chilli cooked into the batter.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Set Dosa",
+        "description": "Three soft spongy dosas with vegetable kurma.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/samosa.jpg"
+      },
+      {
+        "name": "Idli Sambar",
+        "description": "Steamed rice cakes in hot sambar with coconut chutney.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/chicken-biryani.jpg"
+      },
+      {
+        "name": "Medu Vada",
+        "description": "Crisp lentil doughnuts, fluffy inside.",
+        "price": 100.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/butter-chicken-curry.jpg"
+      },
+      {
+        "name": "Kesari Bath",
+        "description": "Saffron semolina pudding with cashew and raisin.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Filter Coffee",
+        "description": "Chicory-blend decoction pulled between two tumblers.",
+        "price": 50.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Madras Tiffin Room",
+    "description": "Tiffin served from six in the morning. Steel plates, banana leaf on request, and sambar refilled without asking.",
+    "address": "31, Mylapore Tank Road, Chennai 600004",
+    "image": "/images/food/south-indian-meal-platter.jpg",
+    "rating": 4.4,
+    "deliveryTime": 26,
+    "deliveryFee": "FREE",
+    "discount": "20% OFF",
+    "category": "Indian, South Indian, Breakfast",
+    "ownerEmail": "owner9@quickbite.com",
+    "menu": [
+      {
+        "name": "Ven Pongal",
+        "description": "Rice and moong dal with peppercorn, cumin and plenty of ghee.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/idli-with-chutney.jpg"
+      },
+      {
+        "name": "Idli Vada Combo",
+        "description": "Two idlis and a vada with sambar and three chutneys.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/south-indian-meal-platter.jpg"
+      },
+      {
+        "name": "Poori Masala",
+        "description": "Puffed poori with a soft turmeric potato masala.",
+        "price": 140.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Chettinad Chicken Curry",
+        "description": "Peppery Chettinad masala with roasted whole spice.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Chicken Chettinad Biryani",
+        "description": "Seeraga samba rice with Chettinad-spiced chicken.",
+        "price": 320.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Curd Rice",
+        "description": "Cooled rice folded with curd, tempered with mustard and curry leaf.",
+        "price": 100.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/samosa.jpg"
+      },
+      {
+        "name": "Sambar Rice",
+        "description": "Lentil and tamarind rice with a spoon of ghee.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": false,
+        "image": "/images/food/chicken-biryani.jpg"
+      },
+      {
+        "name": "Rava Kesari",
+        "description": "Warm semolina sweet, deep with saffron.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Filter Kaapi",
+        "description": "Strong South Indian coffee, frothed and served hot.",
+        "price": 45.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Kerala Kitchen",
+    "description": "Malabar home cooking — coconut oil, curry leaf and fresh-grated coconut in almost everything, exactly as it should be.",
+    "address": "62, Indiranagar 100 Feet Road, Bengaluru 560038",
+    "image": "/images/food/indian-thali.jpg",
+    "rating": 4.7,
+    "deliveryTime": 35,
+    "deliveryFee": "₹19",
+    "discount": "",
+    "category": "Indian, South Indian, Kerala",
+    "ownerEmail": "owner10@quickbite.com",
+    "menu": [
+      {
+        "name": "Kerala Fish Moilee",
+        "description": "Seer fish poached in a gentle coconut milk and turmeric stew.",
+        "price": 420.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/idli-with-chutney.jpg"
+      },
+      {
+        "name": "Malabar Chicken Biryani",
+        "description": "Short-grain kaima rice with Malabar-spiced chicken and fried onion.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/south-indian-meal-platter.jpg"
+      },
+      {
+        "name": "Beef Ularthiyathu",
+        "description": "Beef slow-roasted with coconut slivers until dark and dry.",
+        "price": 450.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Parotta & Beef Curry",
+        "description": "Flaky layered parotta with a peppery beef curry.",
+        "price": 320.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Appam with Vegetable Stew",
+        "description": "Lace-edged rice hoppers with a mild coconut vegetable stew.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/curry-with-naan.jpg"
+      },
+      {
+        "name": "Puttu & Kadala Curry",
+        "description": "Steamed rice cylinders with black chickpea curry.",
+        "price": 190.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/samosa.jpg"
+      },
+      {
+        "name": "Avial",
+        "description": "Mixed vegetables in coconut and curd with raw coconut oil.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": false,
+        "image": "/images/food/chicken-biryani.jpg"
+      },
+      {
+        "name": "Ada Pradhaman",
+        "description": "Rice ada simmered in jaggery and coconut milk.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Tender Coconut Water",
+        "description": "Served in the shell, with the malai spooned out.",
+        "price": 80.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Wok & Roll",
+    "description": "High-flame wok cooking with the smoky char Calcutta Chinatown built its name on.",
+    "address": "14, Tangra Christopher Road, Kolkata 700046",
+    "image": "/images/food/hakka-noodles.jpg",
+    "rating": 4.3,
+    "deliveryTime": 29,
+    "deliveryFee": "₹19",
+    "discount": "20% OFF",
+    "category": "Chinese, Asian",
+    "ownerEmail": "owner11@quickbite.com",
+    "menu": [
+      {
+        "name": "Veg Hakka Noodles",
+        "description": "Wok-tossed noodles with julienned vegetables and a smoky finish.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/hakka-noodles.jpg"
+      },
+      {
+        "name": "Chicken Hakka Noodles",
+        "description": "Shredded chicken and noodles seared over a high flame.",
+        "price": 260.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/chilli-garlic-noodles.jpg"
+      },
+      {
+        "name": "Veg Manchurian Gravy",
+        "description": "Fried vegetable dumplings in a garlic and soy gravy.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/steamed-dumplings.jpg"
+      },
+      {
+        "name": "Chilli Chicken",
+        "description": "Batter-fried chicken tossed with capsicum and green chilli.",
+        "price": 300.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/orange-chicken-with-broccoli.jpg"
+      },
+      {
+        "name": "Veg Fried Rice",
+        "description": "Long-grain rice tossed with spring onion and diced vegetables.",
+        "price": 210.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Chicken Fried Rice",
+        "description": "Fried rice with shredded chicken and a splash of dark soy.",
+        "price": 250.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Spring Rolls",
+        "description": "Crisp rolls packed with cabbage, carrot and glass noodles.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Honey Chilli Potato",
+        "description": "Twice-fried potato batons in a sticky sweet-hot glaze.",
+        "price": 200.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Chicken Lollipop",
+        "description": "Frenched wings in a red masala batter, served with schezwan dip.",
+        "price": 290.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/tile-chinese.svg"
+      },
+      {
+        "name": "Darsaan with Ice Cream",
+        "description": "Honey-glazed crisp noodles under vanilla ice cream.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Dragon Bowl",
+    "description": "A compact kitchen doing precise, punchy Cantonese and Sichuan plates for a lunchtime crowd.",
+    "address": "9, Hill Road, Bandra West, Mumbai 400050",
+    "image": "/images/food/chilli-garlic-noodles.jpg",
+    "rating": 4.2,
+    "deliveryTime": 27,
+    "deliveryFee": "FREE",
+    "discount": "50% OFF up to ₹100",
+    "category": "Chinese, Asian",
+    "ownerEmail": "owner12@quickbite.com",
+    "menu": [
+      {
+        "name": "Chilli Garlic Noodles",
+        "description": "Noodles tossed in toasted garlic, dried chilli and sesame oil.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/hakka-noodles.jpg"
+      },
+      {
+        "name": "Kung Pao Chicken",
+        "description": "Diced chicken with peanuts, dried chilli and Sichuan pepper.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/chilli-garlic-noodles.jpg"
+      },
+      {
+        "name": "Chicken Manchurian",
+        "description": "Chicken balls in a glossy ginger-garlic gravy.",
+        "price": 310.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/steamed-dumplings.jpg"
+      },
+      {
+        "name": "Burnt Garlic Fried Rice",
+        "description": "Fried rice finished with crisp browned garlic.",
+        "price": 230.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/orange-chicken-with-broccoli.jpg"
+      },
+      {
+        "name": "Prawn Hakka Noodles",
+        "description": "Noodles wok-tossed with prawns and spring onion.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Veg Manchow Soup",
+        "description": "Peppery broth thick with vegetables, topped with fried noodles.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Crispy Chilli Baby Corn",
+        "description": "Baby corn in a light batter, tossed in a sweet-hot sauce.",
+        "price": 250.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Steamed Veg Momos",
+        "description": "Eight parcels with cabbage and carrot, served with red chutney.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Date Pancake",
+        "description": "Crisp pancake rolled around a warm date paste.",
+        "price": 170.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Sichuan Street",
+    "description": "Numbing Sichuan peppercorn, fermented bean paste and chilli oil pressed in-house. Order the mildest thing and it will still bite.",
+    "address": "27, Green Park Main Market, New Delhi 110016",
+    "image": "/images/food/orange-chicken-with-broccoli.jpg",
+    "rating": 4.5,
+    "deliveryTime": 32,
+    "deliveryFee": "₹29",
+    "discount": "",
+    "category": "Chinese, Szechuan",
+    "ownerEmail": "owner13@quickbite.com",
+    "menu": [
+      {
+        "name": "Szechuan Chicken",
+        "description": "Chicken in a chilli-bean sauce with numbing peppercorn.",
+        "price": 350.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/hakka-noodles.jpg"
+      },
+      {
+        "name": "Orange Chicken",
+        "description": "Crisp chicken glazed in a bright citrus and chilli sauce.",
+        "price": 360.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/chilli-garlic-noodles.jpg"
+      },
+      {
+        "name": "Chilli Pork",
+        "description": "Pork belly slices seared with leek and dried red chilli.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/steamed-dumplings.jpg"
+      },
+      {
+        "name": "Mapo Tofu",
+        "description": "Silken tofu in a fiery fermented bean and peppercorn sauce.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/orange-chicken-with-broccoli.jpg"
+      },
+      {
+        "name": "Veg Dan Dan Noodles",
+        "description": "Noodles under a sesame-chilli sauce with preserved vegetable.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Szechuan Chilli Paneer",
+        "description": "Paneer wok-tossed with capsicum in house chilli oil.",
+        "price": 290.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Szechuan Fried Rice",
+        "description": "Fried rice with chilli paste and plenty of spring onion.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Hot & Sour Soup",
+        "description": "Black vinegar and white pepper broth with tofu and mushroom.",
+        "price": 170.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Steamed Jasmine Rice",
+        "description": "Plain fragrant rice to take the edge off the heat.",
+        "price": 140.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/tile-chinese.svg"
+      }
+    ]
+  },
+  {
+    "name": "Bombay Chinese Corner",
+    "description": "Unapologetic Indian-Chinese from a street cart that grew into a shopfront. Extra schezwan is never a question.",
+    "address": "3, Lokhandwala Market, Andheri West, Mumbai 400053",
+    "image": "/images/food/steamed-dumplings.jpg",
+    "rating": 4.1,
+    "deliveryTime": 25,
+    "deliveryFee": "FREE",
+    "discount": "Buy 1 Get 1",
+    "category": "Chinese, Indian, Indo-Chinese",
+    "ownerEmail": "owner14@quickbite.com",
+    "menu": [
+      {
+        "name": "Triple Schezwan Rice",
+        "description": "Fried rice, noodles and gravy stacked in one plate with a fried egg.",
+        "price": 300.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/hakka-noodles.jpg"
+      },
+      {
+        "name": "Schezwan Chopsuey",
+        "description": "Crisp fried noodles under a sweet-hot vegetable gravy.",
+        "price": 250.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/chilli-garlic-noodles.jpg"
+      },
+      {
+        "name": "Chicken Schezwan Noodles",
+        "description": "Noodles tossed with chicken in house schezwan paste.",
+        "price": 270.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/steamed-dumplings.jpg"
+      },
+      {
+        "name": "Paneer Chilli Dry",
+        "description": "Paneer cubes seared with onion, capsicum and soy.",
+        "price": 290.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/orange-chicken-with-broccoli.jpg"
+      },
+      {
+        "name": "Gobi Manchurian",
+        "description": "Cauliflower florets fried and tossed in a tangy garlic sauce.",
+        "price": 230.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Chicken Lollipop",
+        "description": "Six frenched wings with a schezwan mayo dip.",
+        "price": 280.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Veg Momos",
+        "description": "Steamed parcels with a fiery tomato-garlic chutney.",
+        "price": 170.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Chicken Momos",
+        "description": "Minced chicken dumplings, steamed to order.",
+        "price": 200.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Sweet Corn Soup",
+        "description": "Thick corn broth with finely diced vegetables.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/tile-chinese.svg"
+      }
+    ]
+  },
+  {
+    "name": "Napoli Pizza Kitchen",
+    "description": "A wood-fired oven at 450 degrees and a 48-hour dough. Twelve-inch pies, leopard-spotted crust, no compromises.",
+    "address": "56, Church Street, Bengaluru 560001",
+    "image": "/images/food/margherita-pizza.jpg",
+    "rating": 4.8,
+    "deliveryTime": 31,
+    "deliveryFee": "₹29",
+    "discount": "20% OFF",
+    "category": "Pizza, Italian",
+    "ownerEmail": "owner15@quickbite.com",
+    "menu": [
+      {
+        "name": "Margherita Pizza",
+        "description": "San Marzano tomato, fior di latte and torn basil.",
+        "price": 320.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/margherita-pizza.jpg"
+      },
+      {
+        "name": "Marinara Pizza",
+        "description": "Tomato, garlic and oregano — no cheese, the purist's pie.",
+        "price": 300.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/cheese-pizza-slices.jpg"
+      },
+      {
+        "name": "Diavola Pizza",
+        "description": "Spicy salami with chilli flakes and mozzarella.",
+        "price": 480.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/rustic-veggie-pizza.jpg"
+      },
+      {
+        "name": "Quattro Formaggi",
+        "description": "Mozzarella, gorgonzola, parmesan and fontina.",
+        "price": 520.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/supreme-pizza.jpg"
+      },
+      {
+        "name": "Prosciutto e Funghi",
+        "description": "Cured ham and mushroom over a thin crust.",
+        "price": 540.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/pepperoni-pizza.jpg"
+      },
+      {
+        "name": "Penne Arrabbiata",
+        "description": "Penne in a garlicky tomato sauce with dried chilli.",
+        "price": 340.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/sliced-pizza-board.jpg"
+      },
+      {
+        "name": "Garlic Focaccia",
+        "description": "Wood-fired flatbread with rosemary and sea salt.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": false,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Tiramisu",
+        "description": "Mascarpone and espresso-soaked savoiardi, dusted with cocoa.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Sparkling Lemonade",
+        "description": "House lemonade with mint over crushed ice.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Crust & Cheese",
+    "description": "Loaded pans, stuffed crusts and a dip for everything. Built for sharing on a Friday night.",
+    "address": "21, Bistupur Main Road, Jamshedpur 831001",
+    "image": "/images/food/cheese-pizza-slices.jpg",
+    "rating": 4.0,
+    "deliveryTime": 28,
+    "deliveryFee": "FREE",
+    "discount": "50% OFF up to ₹100",
+    "category": "Pizza, Fast Food",
+    "ownerEmail": "owner16@quickbite.com",
+    "menu": [
+      {
+        "name": "Cheese Burst Margherita",
+        "description": "Molten cheese sealed inside the crust, tomato and herbs on top.",
+        "price": 340.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/margherita-pizza.jpg"
+      },
+      {
+        "name": "Peppy Paneer Pizza",
+        "description": "Paneer, capsicum and red paprika on a tandoori base.",
+        "price": 380.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/cheese-pizza-slices.jpg"
+      },
+      {
+        "name": "Chicken Tikka Pizza",
+        "description": "Tandoori chicken chunks with onion and mint mayo drizzle.",
+        "price": 420.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/rustic-veggie-pizza.jpg"
+      },
+      {
+        "name": "Farmhouse Pizza",
+        "description": "Onion, capsicum, mushroom, tomato and sweetcorn.",
+        "price": 360.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/supreme-pizza.jpg"
+      },
+      {
+        "name": "Pepperoni Pizza",
+        "description": "Cupping pepperoni over mozzarella and tomato.",
+        "price": 450.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/pepperoni-pizza.jpg"
+      },
+      {
+        "name": "Garlic Breadsticks",
+        "description": "Soft sticks brushed with garlic butter and herbs.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": true,
+        "image": "/images/food/sliced-pizza-board.jpg"
+      },
+      {
+        "name": "Cheesy Jalapeno Dip",
+        "description": "Warm cheese dip with pickled jalapeno.",
+        "price": 50.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": false,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Choco Lava Cake",
+        "description": "Warm cake with a molten chocolate centre.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Cold Coffee",
+        "description": "Blended coffee with ice cream and a chocolate swirl.",
+        "price": 140.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Slice of Italy",
+    "description": "Thin-crust pizza and hand-rolled pasta from a family kitchen that still makes its own passata every August.",
+    "address": "40, Koregaon Park Lane 5, Pune 411001",
+    "image": "/images/food/rustic-veggie-pizza.jpg",
+    "rating": 4.4,
+    "deliveryTime": 37,
+    "deliveryFee": "₹19",
+    "discount": "",
+    "category": "Pizza, Italian, Pasta",
+    "ownerEmail": "owner17@quickbite.com",
+    "menu": [
+      {
+        "name": "Quattro Stagioni Pizza",
+        "description": "Four quarters — ham, mushroom, artichoke and olive.",
+        "price": 490.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/margherita-pizza.jpg"
+      },
+      {
+        "name": "Pesto Chicken Pizza",
+        "description": "Basil pesto base with grilled chicken and cherry tomato.",
+        "price": 470.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/cheese-pizza-slices.jpg"
+      },
+      {
+        "name": "Veggie Supreme Pizza",
+        "description": "Peppers, olives, onion, corn and mushroom, generously piled.",
+        "price": 400.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/rustic-veggie-pizza.jpg"
+      },
+      {
+        "name": "Chicken Alfredo Pasta",
+        "description": "Fettuccine in a parmesan cream sauce with grilled chicken.",
+        "price": 420.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/supreme-pizza.jpg"
+      },
+      {
+        "name": "Lasagna al Forno",
+        "description": "Layered pasta with slow beef ragu and bechamel.",
+        "price": 460.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/pepperoni-pizza.jpg"
+      },
+      {
+        "name": "Spaghetti Aglio e Olio",
+        "description": "Garlic, olive oil, chilli and parsley — nothing else needed.",
+        "price": 330.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/sliced-pizza-board.jpg"
+      },
+      {
+        "name": "Bruschetta al Pomodoro",
+        "description": "Grilled sourdough with marinated tomato and basil.",
+        "price": 200.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Panna Cotta",
+        "description": "Set vanilla cream with a berry compote.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Iced Peach Tea",
+        "description": "Cold-brewed black tea with peach and lemon.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Burger Barn",
+    "description": "Griddled patties, toasted brioche and a fryer that runs all day. Nothing fancy, everything hot.",
+    "address": "11, Main Road Lalpur, Ranchi 834001",
+    "image": "/images/food/burger-board.jpg",
+    "rating": 4.1,
+    "deliveryTime": 22,
+    "deliveryFee": "FREE",
+    "discount": "Buy 1 Get 1",
+    "category": "Burgers, Fast Food",
+    "ownerEmail": "owner18@quickbite.com",
+    "menu": [
+      {
+        "name": "Classic Cheeseburger",
+        "description": "Beef-style patty, American cheese, pickle and burger sauce.",
+        "price": 220.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/double-cheeseburger.jpg"
+      },
+      {
+        "name": "Crispy Chicken Burger",
+        "description": "Buttermilk-fried chicken thigh with slaw and mayo.",
+        "price": 260.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/burger-board.jpg"
+      },
+      {
+        "name": "Veggie Delight Burger",
+        "description": "Mixed vegetable patty with lettuce, tomato and mint mayo.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Paneer Tikka Burger",
+        "description": "Spiced paneer steak with onion and coriander chutney.",
+        "price": 210.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Aloo Tikki Burger",
+        "description": "Crisp potato patty with tamarind chutney.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "French Fries",
+        "description": "Skin-on fries, salted straight out of the basket.",
+        "price": 110.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Peri Peri Fries",
+        "description": "Fries dusted with a hot peri peri seasoning.",
+        "price": 140.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": false,
+        "image": "/images/food/loaded-nachos.jpg"
+      },
+      {
+        "name": "Onion Rings",
+        "description": "Thick-cut rings in a crunchy batter.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": true,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Chocolate Shake",
+        "description": "Thick shake blended with chocolate ice cream.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Patty & Bun Co.",
+    "description": "Dry-aged patties, house pickles and buns baked two streets away. The queue outside is the review.",
+    "address": "8, Waterfield Road, Bandra West, Mumbai 400050",
+    "image": "/images/food/double-cheeseburger.jpg",
+    "rating": 4.7,
+    "deliveryTime": 34,
+    "deliveryFee": "₹29",
+    "discount": "20% OFF",
+    "category": "Burgers, American",
+    "ownerEmail": "owner19@quickbite.com",
+    "menu": [
+      {
+        "name": "Double Bacon Cheeseburger",
+        "description": "Two patties, smoked bacon and double cheese.",
+        "price": 480.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/double-cheeseburger.jpg"
+      },
+      {
+        "name": "BBQ Pulled Chicken Burger",
+        "description": "Slow-cooked chicken in smoky barbecue sauce with slaw.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/burger-board.jpg"
+      },
+      {
+        "name": "Buttermilk Fried Chicken Burger",
+        "description": "Craggy fried thigh with hot honey and pickles.",
+        "price": 400.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Mushroom Swiss Burger",
+        "description": "Portobello cap with melted Swiss and truffle mayo.",
+        "price": 340.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Beyond Veg Burger",
+        "description": "Plant-based patty that chars and bleeds like the real thing.",
+        "price": 420.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "Buffalo Wings",
+        "description": "Six wings in a vinegary hot sauce with blue cheese dip.",
+        "price": 360.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Loaded Cheese Fries",
+        "description": "Fries under a blanket of cheese sauce and jalapeno.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": false,
+        "image": "/images/food/loaded-nachos.jpg"
+      },
+      {
+        "name": "Coleslaw",
+        "description": "Crunchy cabbage and carrot in a light buttermilk dressing.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": true,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Oreo Milkshake",
+        "description": "Cookies blended through vanilla soft serve.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Smash House Grill",
+    "description": "Balls of beef smashed thin on a screaming flat-top for maximum crust. Sides come in baskets.",
+    "address": "76, Road No. 12, Banjara Hills, Hyderabad 500034",
+    "image": "/images/food/onion-rings.jpg",
+    "rating": 4.5,
+    "deliveryTime": 30,
+    "deliveryFee": "FREE",
+    "discount": "",
+    "category": "Burgers, American, Grill",
+    "ownerEmail": "owner20@quickbite.com",
+    "menu": [
+      {
+        "name": "Classic Smash Burger",
+        "description": "Thin-smashed patty with cheese, onion and house sauce.",
+        "price": 320.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/double-cheeseburger.jpg"
+      },
+      {
+        "name": "Double Smash Stack",
+        "description": "Two crusty patties, double cheese, pickle and mustard.",
+        "price": 450.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/burger-board.jpg"
+      },
+      {
+        "name": "Grilled Chicken Burger",
+        "description": "Marinated thigh off the grill with lettuce and garlic aioli.",
+        "price": 350.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Smoky Veg Smash",
+        "description": "Black bean and corn patty with chipotle mayo.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Onion Rings Basket",
+        "description": "Beer-battered rings, stacked high.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": true,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "Cajun Fries",
+        "description": "Fries tossed in a smoky cajun rub.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Grilled Corn Ribs",
+        "description": "Charred corn quarters with chilli butter and lime.",
+        "price": 190.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": false,
+        "image": "/images/food/loaded-nachos.jpg"
+      },
+      {
+        "name": "Brownie Sundae",
+        "description": "Warm brownie, vanilla scoop and hot fudge.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Root Beer Float",
+        "description": "Chilled root beer over vanilla ice cream.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Taco Fiesta",
+    "description": "Soft corn tortillas pressed to order, salsas roasted daily and a hot sauce shelf worth working through.",
+    "address": "34, Koramangala 5th Block, Bengaluru 560095",
+    "image": "/images/food/loaded-nachos.jpg",
+    "rating": 4.3,
+    "deliveryTime": 29,
+    "deliveryFee": "₹19",
+    "discount": "50% OFF up to ₹100",
+    "category": "Mexican",
+    "ownerEmail": "owner21@quickbite.com",
+    "menu": [
+      {
+        "name": "Chicken Tacos (3 pcs)",
+        "description": "Grilled chicken, pico de gallo and lime crema on corn tortillas.",
+        "price": 320.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/loaded-nachos.jpg"
+      },
+      {
+        "name": "Veg Tacos (3 pcs)",
+        "description": "Roasted peppers, black beans and avocado.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Chicken Quesadilla",
+        "description": "Griddled tortilla folded over chicken and melted cheese.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "Veg Quesadilla",
+        "description": "Mushroom, corn and three cheeses, pressed until crisp.",
+        "price": 290.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veggie-buddha-bowl.jpg"
+      },
+      {
+        "name": "Chilli Con Carne",
+        "description": "Slow-cooked minced beef and beans with a cornbread wedge.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Loaded Nachos",
+        "description": "Corn chips under cheese sauce, jalapeno, salsa and sour cream.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Guacamole & Chips",
+        "description": "Hand-mashed avocado with lime, coriander and onion.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Churros with Chocolate",
+        "description": "Cinnamon-sugar churros with a thick dipping chocolate.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Virgin Mojito",
+        "description": "Lime, mint and soda over crushed ice.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Burrito Bay",
+    "description": "Build-your-own burritos wrapped tight in foil. Fast, filling and impossible to eat neatly.",
+    "address": "17, Baner Road, Pune 411045",
+    "image": "/images/food/tile-mexican.svg",
+    "rating": 4.0,
+    "deliveryTime": 24,
+    "deliveryFee": "FREE",
+    "discount": "20% OFF",
+    "category": "Mexican, Fast Food",
+    "ownerEmail": "owner22@quickbite.com",
+    "menu": [
+      {
+        "name": "Chicken Burrito Bowl",
+        "description": "Rice, beans, grilled chicken, salsa and cheese in a bowl.",
+        "price": 360.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/loaded-nachos.jpg"
+      },
+      {
+        "name": "Beef Burrito",
+        "description": "Slow-braised beef, rice and beans in a flour tortilla.",
+        "price": 420.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Veg Burrito",
+        "description": "Fajita vegetables, beans, rice and guacamole.",
+        "price": 290.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "Paneer Burrito",
+        "description": "Chipotle-marinated paneer with peppers and lime rice.",
+        "price": 310.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veggie-buddha-bowl.jpg"
+      },
+      {
+        "name": "Mexican Rice",
+        "description": "Tomato and coriander rice with a squeeze of lime.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Refried Beans",
+        "description": "Slow-cooked pinto beans mashed with cumin.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Jalapeno Poppers",
+        "description": "Cheese-stuffed jalapenos in a crisp crumb.",
+        "price": 210.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Salsa & Chips",
+        "description": "Fire-roasted tomato salsa with warm corn chips.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/tile-mexican.svg"
+      },
+      {
+        "name": "Horchata",
+        "description": "Chilled rice and cinnamon drink.",
+        "price": 140.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Sushi Sakura",
+    "description": "A seven-seat counter with fish flown in twice a week. Watch it cut, eat it within the minute.",
+    "address": "12, Khan Market, New Delhi 110003",
+    "image": "/images/food/tile-sushi.svg",
+    "rating": 4.9,
+    "deliveryTime": 42,
+    "deliveryFee": "₹49",
+    "discount": "",
+    "category": "Japanese, Sushi",
+    "ownerEmail": "owner23@quickbite.com",
+    "menu": [
+      {
+        "name": "Salmon Nigiri (4 pcs)",
+        "description": "Hand-pressed rice under thick cuts of Norwegian salmon.",
+        "price": 520.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/salmon-grain-bowl.jpg"
+      },
+      {
+        "name": "Tuna Sashimi",
+        "description": "Six slices of maguro, served with fresh wasabi.",
+        "price": 620.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/steamed-dumplings.jpg"
+      },
+      {
+        "name": "California Roll",
+        "description": "Crab stick, avocado and cucumber rolled inside out.",
+        "price": 480.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/veggie-buddha-bowl.jpg"
+      },
+      {
+        "name": "Ebi Tempura Roll",
+        "description": "Prawn tempura roll with spicy mayo and tobiko.",
+        "price": 560.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/hakka-noodles.jpg"
+      },
+      {
+        "name": "Avocado Maki",
+        "description": "Six pieces of ripe avocado rolled in nori and rice.",
+        "price": 380.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/chilli-garlic-noodles.jpg"
+      },
+      {
+        "name": "Cucumber Maki",
+        "description": "Clean, crisp kappa maki with toasted sesame.",
+        "price": 340.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      },
+      {
+        "name": "Miso Soup",
+        "description": "Dashi and white miso with tofu and wakame.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/tile-sushi.svg"
+      },
+      {
+        "name": "Edamame",
+        "description": "Steamed soy beans tossed in sea salt.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/tile-japanese-ramen.svg"
+      },
+      {
+        "name": "Matcha Ice Cream",
+        "description": "Stone-ground matcha folded through cream.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Ramen Republic",
+    "description": "Broth simmered eighteen hours, noodles cut daily. Slurping is the correct way to eat here.",
+    "address": "29, Indiranagar 12th Main, Bengaluru 560038",
+    "image": "/images/food/tile-japanese-ramen.svg",
+    "rating": 4.6,
+    "deliveryTime": 33,
+    "deliveryFee": "₹29",
+    "discount": "20% OFF",
+    "category": "Japanese, Noodles",
+    "ownerEmail": "owner24@quickbite.com",
+    "menu": [
+      {
+        "name": "Tonkotsu Ramen",
+        "description": "Cloudy pork bone broth, chashu, ajitama and spring onion.",
+        "price": 520.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/chilli-garlic-noodles.jpg"
+      },
+      {
+        "name": "Shoyu Chicken Ramen",
+        "description": "Clear soy-based broth with grilled chicken and bamboo shoot.",
+        "price": 460.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/hakka-noodles.jpg"
+      },
+      {
+        "name": "Spicy Tantanmen",
+        "description": "Sesame and chilli broth with minced pork and pak choi.",
+        "price": 480.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/steamed-dumplings.jpg"
+      },
+      {
+        "name": "Veg Miso Ramen",
+        "description": "Miso broth with corn, mushroom, tofu and butter.",
+        "price": 400.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/orange-chicken-with-broccoli.jpg"
+      },
+      {
+        "name": "Chashu Don",
+        "description": "Rice bowl topped with torched pork belly and egg.",
+        "price": 450.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Chicken Karaage",
+        "description": "Marinated fried chicken with japanese mayo and lemon.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/salmon-grain-bowl.jpg"
+      },
+      {
+        "name": "Veg Gyoza",
+        "description": "Pan-fried dumplings with a crisp lattice base.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/tile-japanese-ramen.svg"
+      },
+      {
+        "name": "Matcha Cheesecake",
+        "description": "Baked cheesecake with a bitter matcha edge.",
+        "price": 300.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Yuzu Soda",
+        "description": "Sparkling citrus soda, sharp and cold.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Bangkok Spice",
+    "description": "Curry pastes pounded in a granite mortar every morning. Hot, sour, salty and sweet in the same mouthful.",
+    "address": "45, Turner Road, Bandra West, Mumbai 400050",
+    "image": "/images/food/tile-thai.svg",
+    "rating": 4.4,
+    "deliveryTime": 35,
+    "deliveryFee": "₹19",
+    "discount": "50% OFF up to ₹100",
+    "category": "Thai, Asian",
+    "ownerEmail": "owner25@quickbite.com",
+    "menu": [
+      {
+        "name": "Pad Thai with Chicken",
+        "description": "Rice noodles with tamarind, peanut, egg and bean sprout.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/chilli-garlic-noodles.jpg"
+      },
+      {
+        "name": "Veg Pad Thai",
+        "description": "The same wok-tossed noodles with tofu and vegetables.",
+        "price": 320.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/hakka-noodles.jpg"
+      },
+      {
+        "name": "Red Curry Chicken",
+        "description": "Coconut curry with bamboo shoot and thai basil.",
+        "price": 400.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/orange-chicken-with-broccoli.jpg"
+      },
+      {
+        "name": "Green Curry with Rice",
+        "description": "Fresh green curry paste, coconut milk and aubergine.",
+        "price": 360.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veggie-buddha-bowl.jpg"
+      },
+      {
+        "name": "Thai Basil Fried Rice",
+        "description": "Jasmine rice tossed with holy basil and chilli.",
+        "price": 300.0,
+        "vegetarian": true,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/steamed-dumplings.jpg"
+      },
+      {
+        "name": "Tom Yum Soup",
+        "description": "Hot and sour prawn broth with lemongrass and galangal.",
+        "price": 260.0,
+        "vegetarian": false,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Som Tam Salad",
+        "description": "Shredded green papaya pounded with lime, chilli and peanut.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      },
+      {
+        "name": "Mango Sticky Rice",
+        "description": "Coconut sticky rice with ripe mango and sesame.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Thai Iced Tea",
+        "description": "Sweet spiced tea layered with condensed milk.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/ice-cream-cone.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Kebab Kingdom",
+    "description": "Charcoal grills running the length of the kitchen. Meat, flatbread, pickles — the format has not changed in centuries.",
+    "address": "52, Masab Tank Main Road, Hyderabad 500028",
+    "image": "/images/food/grilled-chicken-skewers.jpg",
+    "rating": 4.6,
+    "deliveryTime": 32,
+    "deliveryFee": "FREE",
+    "discount": "",
+    "category": "Middle Eastern, Kebabs",
+    "ownerEmail": "owner26@quickbite.com",
+    "menu": [
+      {
+        "name": "Chicken Shish Kebab",
+        "description": "Cubed chicken marinated in garlic and sumac, grilled on skewers.",
+        "price": 380.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Lamb Seekh Kebab",
+        "description": "Minced lamb with parsley and warm spice, charred over coals.",
+        "price": 450.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Mixed Grill Platter",
+        "description": "Shish, seekh and wings with rice, salad and flatbread.",
+        "price": 620.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Chicken Shawarma Plate",
+        "description": "Shaved spit-roast chicken with garlic toum and fries.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veggie-buddha-bowl.jpg"
+      },
+      {
+        "name": "Falafel Platter",
+        "description": "Six chickpea fritters with tahini, salad and pita.",
+        "price": 300.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "Hummus with Pita",
+        "description": "Whipped chickpea and tahini with warm bread.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Mutabbal",
+        "description": "Smoked aubergine with yoghurt, tahini and olive oil.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Baklava",
+        "description": "Layered filo with pistachio and honey syrup.",
+        "price": 200.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Mint Lemonade",
+        "description": "Blended lemon, mint and ice.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Shawarma Street",
+    "description": "One vertical spit, one flatbread press and a queue that starts at nine at night.",
+    "address": "6, Sakchi Bazaar Road, Jamshedpur 831001",
+    "image": "/images/food/tile-middle-eastern.svg",
+    "rating": 4.2,
+    "deliveryTime": 21,
+    "deliveryFee": "FREE",
+    "discount": "Buy 1 Get 1",
+    "category": "Middle Eastern, Fast Food",
+    "ownerEmail": "owner27@quickbite.com",
+    "menu": [
+      {
+        "name": "Chicken Shawarma Roll",
+        "description": "Spit-shaved chicken with garlic sauce and pickle in a wrap.",
+        "price": 180.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/grilled-chicken-skewers.jpg"
+      },
+      {
+        "name": "Beef Shawarma Roll",
+        "description": "Sliced spiced beef with tahini and onion sumac.",
+        "price": 220.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Shawarma Plate with Fries",
+        "description": "A full plate of shaved meat, fries, salad and two sauces.",
+        "price": 300.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Chicken Shawarma Bowl",
+        "description": "Shawarma over spiced rice with salad and toum.",
+        "price": 280.0,
+        "vegetarian": false,
+        "category": "Rice & Biryani",
+        "available": true,
+        "image": "/images/food/veggie-buddha-bowl.jpg"
+      },
+      {
+        "name": "Falafel Wrap",
+        "description": "Crisp falafel, salad and tahini in warm flatbread.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "Pita & Hummus",
+        "description": "Chickpea dip with olive oil and warm pita.",
+        "price": 190.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Garlic Mayo Fries",
+        "description": "Fries under a thick garlic toum.",
+        "price": 140.0,
+        "vegetarian": true,
+        "category": "Sides",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Kunafa",
+        "description": "Shredded pastry over melting cheese in sugar syrup.",
+        "price": 230.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Laban Ayran",
+        "description": "Chilled salted yoghurt drink.",
+        "price": 100.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Green Bowl Salads",
+    "description": "Everything weighed, dressed to order and built on produce that arrived this morning. Macros on request.",
+    "address": "72, HSR Layout Sector 2, Bengaluru 560102",
+    "image": "/images/food/veggie-buddha-bowl.jpg",
+    "rating": 4.3,
+    "deliveryTime": 26,
+    "deliveryFee": "₹19",
+    "discount": "20% OFF",
+    "category": "Healthy, Salads, Continental",
+    "ownerEmail": "owner28@quickbite.com",
+    "menu": [
+      {
+        "name": "Grilled Chicken Caesar Salad",
+        "description": "Cos lettuce, parmesan, croutons and a proper anchovy dressing.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/veggie-buddha-bowl.jpg"
+      },
+      {
+        "name": "Grilled Salmon Bowl",
+        "description": "Salmon fillet over quinoa with greens and lemon dressing.",
+        "price": 520.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/salmon-grain-bowl.jpg"
+      },
+      {
+        "name": "Quinoa Avocado Bowl",
+        "description": "Quinoa, avocado, chickpea, pomegranate and mint.",
+        "price": 360.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/healthy-breakfast-platter.jpg"
+      },
+      {
+        "name": "Falafel Power Bowl",
+        "description": "Falafel, hummus, pickled vegetables and brown rice.",
+        "price": 330.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      },
+      {
+        "name": "Greek Salad",
+        "description": "Cucumber, olive, tomato and feta in oregano vinaigrette.",
+        "price": 300.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/roast-chicken-kale-salad.jpg"
+      },
+      {
+        "name": "Hummus Veggie Platter",
+        "description": "Crudites, hummus and toasted seed crackers.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Overnight Oats",
+        "description": "Rolled oats soaked in almond milk with berries and chia.",
+        "price": 190.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/tile-salad.svg"
+      },
+      {
+        "name": "Fresh Fruit Bowl",
+        "description": "Seasonal fruit cut to order with a squeeze of lime.",
+        "price": 200.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Detox Green Juice",
+        "description": "Spinach, cucumber, celery, green apple and ginger.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/ice-cream-cone.jpg"
+      }
+    ]
+  },
+  {
+    "name": "The Waffle Works",
+    "description": "Waffle irons, a slow coffee bar and a breakfast menu that runs until closing time.",
+    "address": "19, North Main Road, Koregaon Park, Pune 411001",
+    "image": "/images/food/sprinkle-donuts.jpg",
+    "rating": 3.9,
+    "deliveryTime": 27,
+    "deliveryFee": "₹19",
+    "discount": "",
+    "category": "Desserts, Breakfast, Cafe",
+    "ownerEmail": "owner29@quickbite.com",
+    "menu": [
+      {
+        "name": "Belgian Chocolate Waffle",
+        "description": "Pearl sugar waffle under a dark chocolate pour.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Red Velvet Waffle",
+        "description": "Cocoa waffle with cream cheese frosting and berries.",
+        "price": 300.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-brownie.jpg"
+      },
+      {
+        "name": "Maple Butter Waffle",
+        "description": "Crisp waffle, salted butter and real maple syrup.",
+        "price": 240.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": false,
+        "image": "/images/food/sprinkle-donuts.jpg"
+      },
+      {
+        "name": "Nutella French Toast",
+        "description": "Thick brioche griddled and layered with hazelnut spread.",
+        "price": 290.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/healthy-breakfast-platter.jpg"
+      },
+      {
+        "name": "Pancake Stack",
+        "description": "Three buttermilk pancakes with banana and honey.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/strawberry-cupcakes.jpg"
+      },
+      {
+        "name": "Big Breakfast Platter",
+        "description": "Eggs your way, sausage, hash brown, beans and toast.",
+        "price": 340.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/ice-cream-cone.jpg"
+      },
+      {
+        "name": "Vanilla Ice Cream Scoop",
+        "description": "Madagascan vanilla, one generous scoop.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": false,
+        "image": "/images/food/tile-dessert.svg"
+      },
+      {
+        "name": "Cold Brew Coffee",
+        "description": "Steeped eighteen hours, served black over ice.",
+        "price": 180.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      },
+      {
+        "name": "Fresh Orange Juice",
+        "description": "Pressed to order, nothing added.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/tile-salad.svg"
+      }
+    ]
+  },
+  {
+    "name": "Sweet Tooth Bakery",
+    "description": "A small bakery working through the night. What sells out is gone until tomorrow.",
+    "address": "38, Park Street, Kolkata 700016",
+    "image": "/images/food/chocolate-layer-cake.jpg",
+    "rating": 4.7,
+    "deliveryTime": 23,
+    "deliveryFee": "FREE",
+    "discount": "50% OFF up to ₹100",
+    "category": "Desserts, Bakery, Cafe",
+    "ownerEmail": "owner30@quickbite.com",
+    "menu": [
+      {
+        "name": "Chocolate Truffle Slice",
+        "description": "Dense chocolate sponge under a glossy truffle ganache.",
+        "price": 220.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Blueberry Cheesecake",
+        "description": "Baked New York cheesecake with a blueberry compote.",
+        "price": 280.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-brownie.jpg"
+      },
+      {
+        "name": "Red Velvet Cupcake",
+        "description": "Cocoa crumb with a cream cheese swirl.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": false,
+        "image": "/images/food/sprinkle-donuts.jpg"
+      },
+      {
+        "name": "Fudge Brownie",
+        "description": "Dark, dense and deliberately underbaked in the middle.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/strawberry-cupcakes.jpg"
+      },
+      {
+        "name": "Assorted Donuts (4)",
+        "description": "Glazed, chocolate, sprinkle and cinnamon sugar.",
+        "price": 260.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/ice-cream-cone.jpg"
+      },
+      {
+        "name": "Strawberry Pastry",
+        "description": "Vanilla sponge, chantilly cream and fresh strawberry.",
+        "price": 170.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/tile-dessert.svg"
+      },
+      {
+        "name": "Macaron Box (6)",
+        "description": "Six shells across six flavours, boxed to travel.",
+        "price": 350.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": false,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      },
+      {
+        "name": "Butter Croissant",
+        "description": "Twenty-seven layers, laminated over three days.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/healthy-breakfast-platter.jpg"
+      },
+      {
+        "name": "Cappuccino",
+        "description": "Double shot under steamed milk and a fine foam.",
+        "price": 160.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/tile-salad.svg"
+      }
+    ]
+  },
+  {
+    "name": "Chai & Chaat Adda",
+    "description": "A corner stall with two steel counters and a kettle that never goes cold. Everything assembled in front of you.",
+    "address": "9, Firayalal Chowk, Ranchi 834001",
+    "image": "/images/food/samosa.jpg",
+    "rating": 4.2,
+    "deliveryTime": 18,
+    "deliveryFee": "FREE",
+    "discount": "20% OFF",
+    "category": "Street Food, Snacks, Indian",
+    "ownerEmail": "owner31@quickbite.com",
+    "menu": [
+      {
+        "name": "Pani Puri (6 pcs)",
+        "description": "Crisp shells filled with spiced water, tamarind and potato.",
+        "price": 70.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/samosa.jpg"
+      },
+      {
+        "name": "Bhel Puri",
+        "description": "Puffed rice tossed with chutneys, onion and sev.",
+        "price": 90.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/loaded-nachos.jpg"
+      },
+      {
+        "name": "Sev Puri",
+        "description": "Flat puris loaded with potato, chutney and fine sev.",
+        "price": 100.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Dahi Puri",
+        "description": "Shells filled with chilled yoghurt and sweet chutney.",
+        "price": 110.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "Aloo Tikki Chaat",
+        "description": "Griddled potato patties under curd and tamarind.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Samosa Chaat",
+        "description": "Crushed samosa with chole, curd and chutneys.",
+        "price": 130.0,
+        "vegetarian": true,
+        "category": "Starters",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Kachori Sabzi",
+        "description": "Flaky lentil kachori with a spiced potato curry.",
+        "price": 110.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Vada Pav",
+        "description": "Batata vada in a soft pav with dry garlic chutney.",
+        "price": 60.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/paneer-tikka-sizzler.jpg"
+      },
+      {
+        "name": "Pav Bhaji",
+        "description": "Mashed vegetable bhaji with butter-griddled pav.",
+        "price": 170.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/indian-thali.jpg"
+      },
+      {
+        "name": "Masala Chai",
+        "description": "Ginger and cardamom tea boiled on the stove.",
+        "price": 40.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  },
+  {
+    "name": "Steel City Rolls",
+    "description": "Kathi rolls off a flat iron griddle — paratha, egg wash, filling, wrap, done in ninety seconds.",
+    "address": "25, Kadma Main Road, Jamshedpur 831005",
+    "image": "/images/food/paneer-tikka-sizzler.jpg",
+    "rating": 4.4,
+    "deliveryTime": 20,
+    "deliveryFee": "FREE",
+    "discount": "Buy 1 Get 1",
+    "category": "Street Food, Rolls, Indian",
+    "ownerEmail": "owner32@quickbite.com",
+    "menu": [
+      {
+        "name": "Chicken Kathi Roll",
+        "description": "Griddled chicken tikka in a flaky egg paratha with onion.",
+        "price": 160.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/samosa.jpg"
+      },
+      {
+        "name": "Double Egg Chicken Roll",
+        "description": "Two eggs laid over the paratha before the chicken goes in.",
+        "price": 180.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/loaded-nachos.jpg"
+      },
+      {
+        "name": "Mutton Kathi Roll",
+        "description": "Slow-cooked mutton with green chutney and lime.",
+        "price": 220.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/onion-rings.jpg"
+      },
+      {
+        "name": "Egg Roll",
+        "description": "The original — egg, onion, chilli and a squeeze of lemon.",
+        "price": 90.0,
+        "vegetarian": false,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/club-sandwich.jpg"
+      },
+      {
+        "name": "Paneer Tikka Roll",
+        "description": "Charred paneer with mint chutney and pickled onion.",
+        "price": 150.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/grilled-sandwich-platter.jpg"
+      },
+      {
+        "name": "Aloo Kabab Roll",
+        "description": "Spiced potato kebab wrapped with chutney and salad.",
+        "price": 100.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": true,
+        "image": "/images/food/fried-chicken.jpg"
+      },
+      {
+        "name": "Veg Chowmein Roll",
+        "description": "Wok-tossed noodles rolled into a paratha with chilli sauce.",
+        "price": 120.0,
+        "vegetarian": true,
+        "category": "Main Course",
+        "available": false,
+        "image": "/images/food/veg-pulao-bowl.jpg"
+      },
+      {
+        "name": "Gulab Jamun (2 pcs)",
+        "description": "Warm and soaked, two to a box.",
+        "price": 80.0,
+        "vegetarian": true,
+        "category": "Desserts",
+        "available": true,
+        "image": "/images/food/chocolate-layer-cake.jpg"
+      },
+      {
+        "name": "Masala Chai",
+        "description": "Strong roadside tea in a small glass.",
+        "price": 40.0,
+        "vegetarian": true,
+        "category": "Beverages",
+        "available": true,
+        "image": "/images/food/fresh-fruit-bowl.jpg"
+      }
+    ]
+  }
+]

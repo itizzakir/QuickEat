@@ -1,33 +1,39 @@
-"use client"
+"use client";
 
-import { useAuth } from "../contexts/AuthContext"
-import { Navigate } from "react-router-dom"
+import { Navigate, useLocation } from "react-router-dom";
 
-export default function ProtectedRoute({ children, role }) {
-  const { user, isLoading } = useAuth()
+import { useAuth } from "../contexts/AuthContext";
+import { normalizeRole } from "../utils/roles";
+import NotAuthorized from "./NotAuthorized";
+import FullPageSpinner from "./FullPageSpinner";
+
+/**
+ * Route guard.
+ *
+ * Takes `roles` as an array and normalises the ROLE_ prefix on both sides. An authenticated
+ * user with the wrong role gets an explicit "Not authorised" page rather than a silent
+ * redirect home — the old behaviour was indistinguishable from a broken link.
+ *
+ * This is a usability layer, not a security boundary: the server authorises every request
+ * independently, so tampering with the stored role changes what is rendered and nothing else.
+ */
+export default function ProtectedRoute({ children, roles, role }) {
+  const { user, isLoading } = useAuth();
+  const location = useLocation();
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-500"></div>
-      </div>
-    )
+    return <FullPageSpinner label="Checking your session..." />;
   }
 
-  // Not logged in → redirect to homepage or login
   if (!user) {
-    return <Navigate to="/" replace />
+    // Remember where they were headed so login can send them back.
+    return <Navigate to="/" replace state={{ from: location.pathname }} />;
   }
 
-  // Normalize roles for comparison
-  const normalizeRole = (r) => r ? r.toUpperCase().replace('ROLE_', '') : '';
-  const userRole = normalizeRole(user.role);
-  const requiredRole = normalizeRole(role);
-
-  // Role mismatch → redirect to homepage
-  if (role && userRole !== requiredRole) {
-    return <Navigate to="/" replace />
+  const allowed = (roles ?? (role ? [role] : [])).map(normalizeRole).filter(Boolean);
+  if (allowed.length > 0 && !allowed.includes(normalizeRole(user.role))) {
+    return <NotAuthorized requiredRoles={allowed} />;
   }
 
-  return children
+  return children;
 }

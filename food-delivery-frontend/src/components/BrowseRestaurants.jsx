@@ -8,7 +8,6 @@ import { categories } from "../components/mockData";
 import { Search, MapPin, ChevronDown, Plus, Loader2 } from "lucide-react";
 
 export default function BrowseRestaurants({
-  user,
   allRestaurants,
   searchQuery,
   setSearchQuery,
@@ -19,8 +18,9 @@ export default function BrowseRestaurants({
   selectedRestaurantMenu,
   isMenuLoading,
 }) {
-  const [filters, setFilters] = useState({ minRating: 0 });
-  const [sortBy, setSortBy] = useState("rating");
+  // No filter/sort controls are rendered yet, so these hold fixed defaults for now.
+  const [filters] = useState({ minRating: 0 });
+  const [sortBy] = useState("rating");
 
   // --- FILTERING & SORTING LOGIC ---
   const filteredAndSortedRestaurants = useMemo(() => {
@@ -153,6 +153,10 @@ export default function BrowseRestaurants({
                         src={item.image || "/placeholder.svg"}
                         alt={item.name}
                         className="w-16 h-16 object-cover rounded-lg mr-4"
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = "/placeholder.svg";
+                        }}
                       />
                       <div className="flex-1">
                         <h3 className="font-semibold">{item.name}</h3>

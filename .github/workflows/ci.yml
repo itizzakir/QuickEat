@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    name: Backend (mvn verify)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: "17"
+          distribution: temurin
+          cache: maven
+
+      # The test profile runs on in-memory H2 and the seeder is disabled there, so no
+      # database service is needed for CI.
+      - name: mvn verify
+        working-directory: food-delivery-backend
+        run: ./mvnw --batch-mode verify
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: surefire-reports
+          path: food-delivery-backend/target/surefire-reports/
+
+  frontend:
+    name: Frontend (lint, test, build)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: food-delivery-frontend/package-lock.json
+
+      - name: Install
+        working-directory: food-delivery-frontend
+        run: npm ci
+
+      - name: Lint
+        working-directory: food-delivery-frontend
+        run: npm run lint
+
+      - name: Test
+        working-directory: food-delivery-frontend
+        run: npm test
+
+      - name: Build
+        working-directory: food-delivery-frontend
+        run: npm run build

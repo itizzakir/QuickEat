@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, ChefHat, Download } from "lucide-react"
+import { toast } from "sonner"
 
 export default function Footer() {
   const [isVisible, setIsVisible] = useState(false)
@@ -27,7 +28,7 @@ export default function Footer() {
     e.preventDefault()
     console.log("Newsletter subscription:", email)
     setEmail("")
-    alert("Thank you for subscribing to our newsletter!")
+    toast.success("Thanks for subscribing to our newsletter!")
   }
 
   return (

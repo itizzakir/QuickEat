@@ -1,0 +1,40 @@
+# Database for local development.
+#
+#   docker compose up -d
+#   cd food-delivery-backend  && DB_PASSWORD=quickbite ./mvnw spring-boot:run
+#   cd food-delivery-frontend && npm ci && npm run dev
+#
+# Credentials match the backend's env defaults, so `DB_PASSWORD=quickbite` is the only
+# variable you need to set. Data survives `docker compose down`; use `-v` to wipe it and
+# have the seeder rebuild the catalogue from scratch.
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: quickbite-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: quickbite
+      MYSQL_DATABASE: food_delivery_db
+      # A non-root user for the app; the backend defaults to root, so either works.
+      MYSQL_USER: quickbite
+      MYSQL_PASSWORD: quickbite
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      # The backend fails fast on an unreachable database, so wait until MySQL genuinely
+      # answers queries rather than merely having an open port.
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-pquickbite"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+volumes:
+  mysql-data:
+    name: quickbite-mysql-data

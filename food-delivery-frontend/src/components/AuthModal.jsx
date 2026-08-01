@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { X, Mail, Lock, User, Eye, EyeOff, Phone, KeyRound } from "lucide-react";
+import { toast } from "sonner";
+import { X, Mail, Lock, User, Eye, EyeOff, Phone } from "lucide-react";
 import { useAuth } from "../contexts/AuthContext";
-import { mockApi } from "../services/mockApi";
+import { dashboardPathFor } from "../utils/roles";
 
 export default function AuthModal({ isOpen, onClose, mode, onSwitchMode }) {
   const { login, register } = useAuth();
@@ -41,32 +42,8 @@ export default function AuthModal({ isOpen, onClose, mode, onSwitchMode }) {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const redirectToDashboard = (userRole) => {
-    // Handle both ROLE_... and plain ... formats
-    const role = userRole ? userRole.toUpperCase().replace('ROLE_', '') : 'CUSTOMER';
-    
-    switch (role) {
-      case "CUSTOMER":
-        navigate("/customer-dashboard");
-        break;
-      case "RESTAURANT":
-        navigate("/restaurant-dashboard"); // Updated path
-        break;
-      case "DELIVERY_PARTNER":
-      case "DELIVERY":
-        navigate("/delivery-dashboard"); // Updated path
-        break;
-      case "ADMIN":
-        navigate("/admin-dashboard");
-        break;
-      default:
-        navigate("/"); 
-    }
-  };
-
-  const handleDemoLogin = (email, password) => {
-      setFormData(prev => ({ ...prev, email, password }));
-  };
+  // Role -> dashboard mapping lives in AuthContext so every caller agrees.
+  const redirectToDashboard = (userRole) => navigate(dashboardPathFor(userRole));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,7 +68,7 @@ export default function AuthModal({ isOpen, onClose, mode, onSwitchMode }) {
         // Use context register function
         await register(formData);
         
-        alert("Registration successful! Please sign in to continue.");
+        toast.success("Registration successful. Please sign in to continue.");
         onSwitchMode(); 
       }
     } catch (err) {

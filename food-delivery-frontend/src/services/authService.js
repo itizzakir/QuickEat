@@ -1,97 +1,72 @@
-const API_URL = "/api/auth/";
+import { axiosInstance, apiErrorMessage } from "./api";
+
+/**
+ * Sign-in / sign-up run through the shared axios instance so error bodies are parsed the same
+ * way everywhere. These used to use bare fetch() and call response.json() on failures — which
+ * threw a confusing parse error back when the backend returned an HTML error page.
+ */
 
 const login = async (email, password) => {
   try {
-    const response = await fetch(API_URL + "signin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await response.json();
-    
-    if (response.ok) {
-      if (data.token) {
-        // Return user data structured like the app expects
-        return data;
-      } else {
-         throw new Error("Token missing in response");
-      }
-    } else {
-      throw new Error(data.message || "Login failed");
+    const response = await axiosInstance.post("/auth/signin", { email, password });
+    if (!response.data?.token) {
+      throw new Error("Token missing in response");
     }
+    return response.data;
   } catch (error) {
-    console.error("AuthService Login Error:", error);
-    throw error;
+    throw new Error(apiErrorMessage(error, "Login failed"));
   }
 };
 
 const register = async (userData) => {
-  // Map frontend role to backend ERole
+  // Map the UI's role vocabulary onto the backend enum. ADMIN is deliberately absent: the
+  // public signup endpoint rejects it, and admins are created from the admin dashboard.
   let role = "ROLE_CUSTOMER";
   if (userData.role) {
-      const r = userData.role.toUpperCase();
-      if (r === 'RESTAURANT' || r === 'RESTAURANT_OWNER') role = "ROLE_RESTAURANT";
-      else if (r === 'DELIVERY' || r === 'DELIVERY_PARTNER') role = "ROLE_DELIVERY";
-      else if (r === 'ADMIN') role = "ROLE_ADMIN";
+    const r = userData.role.toUpperCase();
+    if (r === "RESTAURANT" || r === "RESTAURANT_OWNER") role = "ROLE_RESTAURANT";
+    else if (r === "DELIVERY" || r === "DELIVERY_PARTNER") role = "ROLE_DELIVERY";
   }
 
-  // Construct payload with all potential fields
   const payload = {
-      fullName: userData.name,
-      email: userData.email,
-      password: userData.password,
-      role: role,
-      mobile: userData.phone || userData.businessPhone, // Use business phone for restaurant if main phone empty
-      
-      // Address
-      addressLine1: userData.addressLine1,
-      city: userData.city,
-      state: userData.state,
-      postalCode: userData.postalCode,
-      country: userData.country,
-      
-      // Restaurant
-      businessName: userData.businessName,
-      businessEmail: userData.businessEmail,
-      businessPhone: userData.businessPhone,
-      categories: userData.categories,
-      imageUrl: userData.imageUrl,
-      
-      // Delivery
-      vehicleType: userData.vehicleType,
-      vehicleModel: userData.vehicleModel,
-      licenseNumber: userData.licenseNumber,
-      vehicleRegistrationNumber: userData.vehicleRegistrationNumber,
-      deliveryZone: userData.zone, // mapped from 'zone' to 'deliveryZone'
-      idProofUrl: userData.idProofUrl
+    fullName: userData.name,
+    email: userData.email,
+    password: userData.password,
+    role,
+    mobile: userData.phone || userData.businessPhone,
+
+    // Address
+    addressLine1: userData.addressLine1,
+    city: userData.city,
+    state: userData.state,
+    postalCode: userData.postalCode,
+    country: userData.country,
+
+    // Restaurant
+    businessName: userData.businessName,
+    businessEmail: userData.businessEmail,
+    businessPhone: userData.businessPhone,
+    categories: userData.categories,
+    imageUrl: userData.imageUrl,
+
+    // Delivery
+    vehicleType: userData.vehicleType,
+    vehicleModel: userData.vehicleModel,
+    licenseNumber: userData.licenseNumber,
+    vehicleRegistrationNumber: userData.vehicleRegistrationNumber,
+    deliveryZone: userData.zone,
+    idProofUrl: userData.idProofUrl,
   };
 
   try {
-    const response = await fetch(API_URL + "signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const data = await response.json();
-    
-    if (!response.ok) {
-      throw new Error(data.message || "Registration failed");
-    }
-    
-    return data;
+    const response = await axiosInstance.post("/auth/signup", payload);
+    return response.data;
   } catch (error) {
-    console.error("AuthService Register Error:", error);
-    throw error;
+    throw new Error(apiErrorMessage(error, "Registration failed"));
   }
 };
 
 export const authService = {
   login,
-  register
+  register,
 };

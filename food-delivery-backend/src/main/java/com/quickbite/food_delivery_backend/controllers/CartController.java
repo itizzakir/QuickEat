@@ -1,18 +1,36 @@
 package com.quickbite.food_delivery_backend.controllers;
 
+import com.quickbite.food_delivery_backend.exception.BadRequestException;
+import com.quickbite.food_delivery_backend.exception.ResourceNotFoundException;
 import com.quickbite.food_delivery_backend.models.*;
 import com.quickbite.food_delivery_backend.payload.request.AddToCartRequest;
+import com.quickbite.food_delivery_backend.payload.response.CartResponse;
 import com.quickbite.food_delivery_backend.repository.*;
+import com.quickbite.food_delivery_backend.security.SecurityUtils;
+import com.quickbite.food_delivery_backend.security.services.UserDetailsImpl;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import jakarta.transaction.Transactional;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+/**
+ * A cart always belongs to the authenticated caller. The user id in these paths is validated
+ * against the JWT principal, and the id that used to arrive in the add-to-cart body is gone
+ * entirely — it was an unauthenticated write primitive against any account.
+ */
 @RestController
 @RequestMapping("/api/cart")
+@Tag(name = "Cart", description = "The signed-in customer's cart")
+@PreAuthorize("hasRole('CUSTOMER')")
 public class CartController {
 
     @Autowired
@@ -28,29 +46,35 @@ public class CartController {
     MenuItemRepository menuItemRepository;
 
     @GetMapping("/{userId}")
-    public ResponseEntity<?> getCart(@PathVariable Long userId) {
+    @Operation(summary = "Fetch a cart (self only)")
+    public ResponseEntity<CartResponse> getCart(@PathVariable Long userId,
+                                                @AuthenticationPrincipal UserDetailsImpl principal) {
+        SecurityUtils.requireSelfOrAdmin(principal, userId);
+
         Optional<Cart> cart = cartRepository.findByUserId(userId);
-        if (cart.isPresent()) {
-            return ResponseEntity.ok(cart.get());
-        } else {
-            // Return empty cart structure if not exists, or create one? 
-            // Better to create one lazily or return empty structure.
-            return ResponseEntity.ok(new Cart()); 
-        }
+        return ResponseEntity.ok(cart.map(CartResponse::from).orElseGet(CartResponse::empty));
     }
 
     @PostMapping("/add")
+    @Operation(summary = "Add a dish to the signed-in customer's cart")
     @Transactional
-    public ResponseEntity<?> addToCart(@RequestBody AddToCartRequest request) {
-        User user = userRepository.findById(request.getUserId())
-                .orElseThrow(() -> new RuntimeException("Error: User not found."));
+    public ResponseEntity<CartResponse> addToCart(@Valid @RequestBody AddToCartRequest request,
+                                                  @AuthenticationPrincipal UserDetailsImpl principal) {
+        // The cart owner comes from the token, never from the request body.
+        Long userId = principal.getId();
+
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> ResourceNotFoundException.of("User", userId));
 
         MenuItem menuItem = menuItemRepository.findById(request.getMenuItemId())
-                .orElseThrow(() -> new RuntimeException("Error: MenuItem not found."));
+                .orElseThrow(() -> ResourceNotFoundException.of("Menu item", request.getMenuItemId()));
 
-        Cart cart = cartRepository.findByUserId(request.getUserId()).orElse(new Cart(user));
-        
-        // Check if item already exists in cart
+        if (Boolean.FALSE.equals(menuItem.getAvailable())) {
+            throw new BadRequestException("'" + menuItem.getName() + "' is currently unavailable");
+        }
+
+        Cart cart = cartRepository.findByUserId(userId).orElseGet(() -> new Cart(user));
+
         Optional<CartItem> existingItem = cart.getItems().stream()
                 .filter(item -> item.getMenuItem().getId().equals(menuItem.getId()))
                 .findFirst();
@@ -64,34 +88,42 @@ public class CartController {
         }
 
         cart.calculateTotal();
-        Cart savedCart = cartRepository.save(cart);
-        
-        return ResponseEntity.ok(savedCart);
+        return ResponseEntity.ok(CartResponse.from(cartRepository.save(cart)));
     }
-    
+
     @DeleteMapping("/remove/{itemId}")
+    @Operation(summary = "Remove a line from your own cart")
     @Transactional
-    public ResponseEntity<?> removeFromCart(@PathVariable Long itemId) {
+    public ResponseEntity<CartResponse> removeFromCart(@PathVariable Long itemId,
+                                                       @AuthenticationPrincipal UserDetailsImpl principal) {
         CartItem cartItem = cartItemRepository.findById(itemId)
-                .orElseThrow(() -> new RuntimeException("Error: CartItem not found."));
-        
+                .orElseThrow(() -> ResourceNotFoundException.of("Cart item", itemId));
+
         Cart cart = cartItem.getCart();
+        // Previously unchecked: any authenticated user could delete lines from anyone's cart
+        // just by guessing an item id.
+        SecurityUtils.requireOwner(principal, cart.getUser() != null ? cart.getUser().getId() : null);
+
         cart.removeItem(cartItem);
-        cartRepository.save(cart);
-        
-        return ResponseEntity.ok(cart);
+        return ResponseEntity.ok(CartResponse.from(cartRepository.save(cart)));
     }
 
     @PostMapping("/clear/{userId}")
+    @Operation(summary = "Empty a cart (self only); idempotent")
     @Transactional
-    public ResponseEntity<?> clearCart(@PathVariable Long userId) {
-        Cart cart = cartRepository.findByUserId(userId)
-                .orElseThrow(() -> new RuntimeException("Error: Cart not found."));
-        
-        cart.getItems().clear();
-        cart.setTotalPrice(0.0);
-        cartRepository.save(cart);
-        
-        return ResponseEntity.ok(cart);
+    public ResponseEntity<CartResponse> clearCart(@PathVariable Long userId,
+                                                  @AuthenticationPrincipal UserDetailsImpl principal) {
+        SecurityUtils.requireSelfOrAdmin(principal, userId);
+
+        // Idempotent: clearing a cart that was never created is a no-op, not an error.
+        // Checkout calls this straight after placing an order, and a 404 there would surface
+        // to the customer as a failed payment.
+        return cartRepository.findByUserId(userId)
+                .map(cart -> {
+                    cart.getItems().clear();
+                    cart.setTotalPrice(0.0);
+                    return ResponseEntity.ok(CartResponse.from(cartRepository.save(cart)));
+                })
+                .orElseGet(() -> ResponseEntity.ok(CartResponse.empty()));
     }
 }

@@ -1,28 +1,28 @@
-import axios from 'axios';
+import { axiosInstance } from './api';
 
-const API_URL = '/api/users';
+/**
+ * Profile calls now ride the shared axios instance, so the token is attached by the request
+ * interceptor and a 401 is handled by the response interceptor. This module used to re-read
+ * localStorage and hand-attach the header itself, which meant expired-token responses here
+ * were silently swallowed.
+ */
 
 const getProfile = async (id) => {
-  const user = JSON.parse(localStorage.getItem('quickbite_user_session_v2'));
-  const token = user?.token;
-
-  const response = await axios.get(`${API_URL}/profile/${id}`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
+  const response = await axiosInstance.get(`/users/profile/${id}`);
   return response.data;
 };
 
-const updateProfile = async (id, userData) => {
-  const user = JSON.parse(localStorage.getItem('quickbite_user_session_v2'));
-  const token = user?.token;
-  
-  const response = await axios.put(`${API_URL}/profile/${id}`, userData, {
-    headers: { Authorization: `Bearer ${token}` }
+const updateProfile = async (id, { fullName, mobile, address, avatarUrl }) => {
+  const response = await axiosInstance.put(`/users/profile/${id}`, {
+    fullName,
+    mobile,
+    address,
+    avatarUrl,
   });
   return response.data;
 };
 
 export const userService = {
   getProfile,
-  updateProfile
+  updateProfile,
 };

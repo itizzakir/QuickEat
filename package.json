@@ -1,0 +1,24 @@
+{
+  "name": "quickbite",
+  "version": "1.0.0",
+  "private": true,
+  "description": "QuickBite food delivery — Spring Boot API + React client",
+  "scripts": {
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "dev:backend": "cd food-delivery-backend && mvnw.cmd spring-boot:run",
+    "dev:frontend": "cd food-delivery-frontend && npm run dev",
+    "dev": "concurrently -n api,web -c blue,green \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "build:backend": "cd food-delivery-backend && mvnw.cmd clean package",
+    "build:frontend": "cd food-delivery-frontend && npm ci && npm run build",
+    "test:backend": "cd food-delivery-backend && mvnw.cmd test",
+    "test:frontend": "cd food-delivery-frontend && npm test",
+    "lint": "cd food-delivery-frontend && npm run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

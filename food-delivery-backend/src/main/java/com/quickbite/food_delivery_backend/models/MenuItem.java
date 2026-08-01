@@ -20,6 +20,8 @@ public class MenuItem {
     
     private Boolean vegetarian;
     private String image;
+    private String category;
+    private Boolean available = true;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
@@ -55,6 +57,12 @@ public class MenuItem {
 
     public String getImage() { return image; }
     public void setImage(String image) { this.image = image; }
+
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
+
+    public Boolean getAvailable() { return available; }
+    public void setAvailable(Boolean available) { this.available = available; }
 
     public Restaurant getRestaurant() { return restaurant; }
     public void setRestaurant(Restaurant restaurant) { this.restaurant = restaurant; }

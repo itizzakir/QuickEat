@@ -1,11 +1,17 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { MapPin, Menu, X } from "lucide-react"
+import { Link } from "react-router-dom"
+import { LogOut, MapPin, Menu, X } from "lucide-react"
+
+import { useAuth } from "../contexts/AuthContext"
 
 export default function Navbar({ onSignInClick, onSignUpClick }) {
+  const { user, isAuthenticated, dashboardPath, logout } = useAuth()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+  const avatarFallback = "/images/avatars/customer.svg"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,16 +82,48 @@ export default function Navbar({ onSignInClick, onSignUpClick }) {
               <span className="font-medium">Deliver to</span>
             </button>
 
-            <button
-              onClick={onSignInClick}
-              className="text-gray-700 hover:text-black font-medium transition-colors duration-300"
-            >
-              Sign in
-            </button>
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-4">
+                <Link to={dashboardPath} className="btn-primary">
+                  Go to dashboard
+                </Link>
+                <div className="flex items-center space-x-2">
+                  <img
+                    src={user.avatarUrl || avatarFallback}
+                    alt={user.name}
+                    className="h-9 w-9 rounded-full object-cover border"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null
+                      e.currentTarget.src = avatarFallback
+                    }}
+                  />
+                  <div className="leading-tight">
+                    <p className="text-sm font-semibold text-gray-800">{user.name}</p>
+                    <p className="text-xs text-gray-500">{user.role}</p>
+                  </div>
+                </div>
+                <button
+                  onClick={logout}
+                  title="Log out"
+                  className="p-2 text-gray-600 hover:text-red-600 transition-colors duration-300"
+                >
+                  <LogOut className="h-5 w-5" />
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={onSignInClick}
+                  className="text-gray-700 hover:text-black font-medium transition-colors duration-300"
+                >
+                  Sign in
+                </button>
 
-            <button onClick={onSignUpClick} className="btn-primary">
-              Sign up
-            </button>
+                <button onClick={onSignUpClick} className="btn-primary">
+                  Sign up
+                </button>
+              </>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -124,25 +162,64 @@ export default function Navbar({ onSignInClick, onSignUpClick }) {
               <span className="font-medium">Deliver to</span>
             </button>
 
-            <button
-              onClick={() => {
-                onSignInClick()
-                setIsOpen(false)
-              }}
-              className="block w-full text-left px-2 text-gray-700 hover:text-black font-medium transition-colors duration-300"
-            >
-              Sign in
-            </button>
+            {isAuthenticated ? (
+              <div className="space-y-3 px-2">
+                <div className="flex items-center space-x-3">
+                  <img
+                    src={user.avatarUrl || avatarFallback}
+                    alt={user.name}
+                    className="h-9 w-9 rounded-full object-cover border"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null
+                      e.currentTarget.src = avatarFallback
+                    }}
+                  />
+                  <div className="leading-tight">
+                    <p className="text-sm font-semibold text-gray-800">{user.name}</p>
+                    <p className="text-xs text-gray-500">{user.role}</p>
+                  </div>
+                </div>
+                <Link
+                  to={dashboardPath}
+                  onClick={() => setIsOpen(false)}
+                  className="btn-primary block text-center"
+                >
+                  Go to dashboard
+                </Link>
+                <button
+                  onClick={() => {
+                    setIsOpen(false)
+                    logout()
+                  }}
+                  className="flex items-center space-x-2 text-gray-700 hover:text-red-600 font-medium"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span>Log out</span>
+                </button>
+              </div>
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    onSignInClick()
+                    setIsOpen(false)
+                  }}
+                  className="block w-full text-left px-2 text-gray-700 hover:text-black font-medium transition-colors duration-300"
+                >
+                  Sign in
+                </button>
 
-            <button
-              onClick={() => {
-                onSignUpClick()
-                setIsOpen(false)
-              }}
-              className="btn-primary mx-2"
-            >
-              Sign up
-            </button>
+                <button
+                  onClick={() => {
+                    onSignUpClick()
+                    setIsOpen(false)
+                  }}
+                  className="btn-primary mx-2"
+                >
+                  Sign up
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

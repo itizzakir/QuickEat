@@ -28,14 +28,22 @@ public class UserDetailsImpl implements UserDetails {
 
   private Collection<? extends GrantedAuthority> authorities;
 
+  private boolean enabled;
+
   public UserDetailsImpl(Long id, String fullName, String email, String password,
       Collection<? extends GrantedAuthority> authorities) {
+    this(id, fullName, email, password, authorities, true);
+  }
+
+  public UserDetailsImpl(Long id, String fullName, String email, String password,
+      Collection<? extends GrantedAuthority> authorities, boolean enabled) {
     this.id = id;
     this.fullName = fullName;
     this.username = email; // Using email as username
     this.email = email;
     this.password = password;
     this.authorities = authorities;
+    this.enabled = enabled;
   }
 
   public static UserDetailsImpl build(User user) {
@@ -43,11 +51,13 @@ public class UserDetailsImpl implements UserDetails {
         new SimpleGrantedAuthority(user.getRole().name()));
 
     return new UserDetailsImpl(
-        user.getId(), 
+        user.getId(),
         user.getFullName(),
         user.getEmail(),
-        user.getPassword(), 
-        authorities);
+        user.getPassword(),
+        authorities,
+        // A suspended account must not be able to authenticate.
+        user.isActive());
   }
 
   @Override
@@ -94,7 +104,7 @@ public class UserDetailsImpl implements UserDetails {
 
   @Override
   public boolean isEnabled() {
-    return true;
+    return enabled;
   }
 
   @Override

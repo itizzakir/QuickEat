@@ -67,7 +67,15 @@ export default function RestaurantSection({ onRestaurantClick }) {
                 onClick={() => onRestaurantClick && onRestaurantClick(restaurant)}
               >
                 <div className="relative overflow-hidden">
-                  <img src={restaurant.image || "/placeholder.svg"} alt={restaurant.name} className="w-full h-48 object-cover group-hover:scale-110 transition-transform" />
+                  <img
+                    src={restaurant.image || "/placeholder.svg"}
+                    alt={restaurant.name}
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/placeholder.svg";
+                    }}
+                  />
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">

@@ -1,8 +1,9 @@
-import { useState, useMemo, useEffect, useCallback } from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import { toast } from "sonner";
 import { useAuth } from "../contexts/AuthContext";
-import { mockApi } from "../services/mockApi";
-import { api } from "../services/api";
+import { useCart } from "../contexts/CartContext";
+import { api, apiErrorMessage } from "../services/api";
 import {
   Search,
   ShoppingCart,
@@ -15,14 +16,13 @@ import {
 
 export default function CustomerDashboard() {
   const { user, logout } = useAuth();
-  const location = useLocation();
+  // Cart lives in context so this header badge and the cart page can never disagree.
+  const { totalItems, addToCart, refresh: refreshCart } = useCart();
 
   // Data state
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
   const [selectedRestaurantMenu, setSelectedRestaurantMenu] = useState([]);
-  const [cart, setCart] = useState(null); 
-  const [orders, setOrders] = useState([]);
 
   // UI/Loading state
   const [isLoading, setIsLoading] = useState(true);
@@ -36,21 +36,13 @@ export default function CustomerDashboard() {
     setIsLoading(true);
     setError("");
     try {
-      // Use api for fetching restaurants, mockApi for others
-      const restaurants = await api.getRestaurants();
-      // Fetch real cart
-      const cartData = await api.getCart(user.id);
-      const ordersData = await api.getOrders(user?.id);
-
-      setAllRestaurants(restaurants);
-      setCart(cartData);
-      setOrders(ordersData);
+      setAllRestaurants(await api.getRestaurants());
     } catch (err) {
-      setError(err.message || "Failed to load dashboard data");
+      setError(apiErrorMessage(err, "Failed to load dashboard data"));
     } finally {
       setIsLoading(false);
     }
-  }, [user]);
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -58,7 +50,7 @@ export default function CustomerDashboard() {
     }
   }, [user, fetchAllData]);
 
-  const handleRestaurantClick = async (restaurant) => {
+  const handleRestaurantClick = useCallback(async (restaurant) => {
     setSelectedRestaurant(restaurant);
     setIsMenuLoading(true);
     try {
@@ -66,51 +58,29 @@ export default function CustomerDashboard() {
       const restaurantDetail = await api.getRestaurantById(restaurant.id);
       setSelectedRestaurantMenu(restaurantDetail?.menu || []);
     } catch (err) {
-      alert(`Error fetching menu: ${err.message}`);
+      toast.error(apiErrorMessage(err, "Could not load that menu"));
       setSelectedRestaurant(null);
     } finally {
       setIsMenuLoading(false);
     }
-  };
+  }, []);
 
-  // --- CART & ORDER HANDLERS ---
-   const addToCart = async (menuItem) => {
-    try {
-      const updatedCart = await api.addToCart(user.id, menuItem, 1);
-      setCart(updatedCart);
-    } catch (err) {
-      alert(`Error adding to cart: ${err.message}`);
-    }
-  };
+  // The landing page stores the restaurant an anonymous visitor clicked before signing in.
+  // Honour it once, then clear it — previously this key was written and never read.
+  useEffect(() => {
+    const pendingId = localStorage.getItem("redirectRestaurantId");
+    if (!pendingId || allRestaurants.length === 0) return;
+    localStorage.removeItem("redirectRestaurantId");
+    const match = allRestaurants.find((r) => String(r.id) === String(pendingId));
+    if (match) handleRestaurantClick(match);
+  }, [allRestaurants, handleRestaurantClick]);
 
-  const removeFromCart = async (cartItemId) => {
-    try {
-      const updatedCart = await api.removeFromCart(cartItemId);
-      setCart(updatedCart); 
-    } catch (err) {
-      alert(`Error removing from cart: ${err.message}`);
-    }
-  };
+  const handleOrderPlacement = useCallback(async () => {
+    await refreshCart();
+    return true;
+  }, [refreshCart]);
 
-  const handleOrderPlacement = async () => {
-    try {
-      // Refresh orders from backend
-      const updatedOrders = await api.getOrders(user.id);
-      setOrders(updatedOrders);
-      
-      // Refresh cart (it should be empty now as Cart.jsx cleared it)
-      const emptyCart = await api.getCart(user.id);
-      setCart(emptyCart);
-      
-      return true; 
-    } catch (err) {
-      alert(`Error refreshing data: ${err.message}`);
-      return false; 
-    }
-  };
-
-  const getTotalItems = () =>
-    cart?.items?.reduce((total, item) => total + item.quantity, 0) || 0;
+  const getTotalItems = () => totalItems;
 
 
   if (isLoading)
@@ -133,19 +103,22 @@ export default function CustomerDashboard() {
           <div className="flex justify-between items-center h-16">
             <button
               onClick={() => setIsSidebarOpen(true)}
+              aria-label="Open menu"
+              aria-expanded={isSidebarOpen}
               className="lg:hidden p-2 -ml-2"
             >
-              <Menu />
+              <Menu aria-hidden="true" />
             </button>
             <h1 className="text-xl sm:text-2xl font-bold">
               Quick<span className="text-primary-500">Bite</span>
             </h1>
             <div className="flex items-center space-x-4">
-              <NavLink
+                              <NavLink
                 to="/customer-dashboard/cart"
+                aria-label={`Cart, ${getTotalItems()} item${getTotalItems() === 1 ? "" : "s"}`}
                 className="relative p-2"
               >
-                <ShoppingCart />
+                <ShoppingCart aria-hidden="true" />
                 {getTotalItems() > 0 && (
                   <span className="absolute -top-1 -right-1 bg-primary-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                     {getTotalItems()}
@@ -154,19 +127,22 @@ export default function CustomerDashboard() {
               </NavLink>
               <div className="hidden sm:flex items-center space-x-3">
                 <img
-                  src={
-                    user.avatarUrl || `https://i.pravatar.cc/40?u=${user.name}`
-                  }
+                  src={user.avatarUrl || "/images/avatars/customer.svg"}
                   alt={user.name}
-                  className="h-8 w-8 rounded-full"
+                  className="h-8 w-8 rounded-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "/images/avatars/customer.svg";
+                  }}
                 />
                 <p className="text-sm font-medium">{user.name}</p>
               </div>
               <button
                 onClick={logout}
+                aria-label="Log out"
                 className="p-2 text-gray-600 hover:text-red-600"
               >
-                <LogOut />
+                <LogOut aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -178,11 +154,12 @@ export default function CustomerDashboard() {
           {isSidebarOpen && (
             <div
               onClick={() => setIsSidebarOpen(false)}
-              className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+              aria-hidden="true"
+              className="fixed inset-0 bg-black/50 z-40 lg:hidden"
             />
           )}
           <aside
-            className={`fixed lg:relative top-0 left-0 h-full w-64 bg-white shadow-lg lg:shadow-none z-40 transform transition-transform ${
+            className={`fixed lg:relative top-0 left-0 h-full w-64 bg-white shadow-lg lg:shadow-none z-50 transform transition-transform ${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
             } lg:translate-x-0`}
           >
@@ -226,21 +203,18 @@ export default function CustomerDashboard() {
           </aside>
 
           <main className="flex-1 min-w-0">
-             <Outlet context={{ 
+             <Outlet context={{
                 user,
-                allRestaurants, 
-                searchQuery, 
-                setSearchQuery, 
-                handleRestaurantClick, 
-                addToCart, 
-                selectedRestaurant, 
-                setSelectedRestaurant, 
-                selectedRestaurantMenu, 
-                isMenuLoading, 
-                cart, 
-                removeFromCart, 
+                allRestaurants,
+                searchQuery,
+                setSearchQuery,
+                handleRestaurantClick,
+                addToCart,
+                selectedRestaurant,
+                setSelectedRestaurant,
+                selectedRestaurantMenu,
+                isMenuLoading,
                 handleOrderPlacement,
-                orders 
              }} />
           </main>
         </div>
