@@ -1,6 +1,8 @@
 name: CI
 
-on:
+# Quoted because YAML 1.1 parses a bare `on` as the boolean true; GitHub accepts both,
+# but quoting keeps strict parsers and linters happy.
+"on":
   push:
     branches: [main]
   pull_request:

@@ -9,6 +9,7 @@ import com.quickbite.food_delivery_backend.payload.response.RestaurantResponse;
 import com.quickbite.food_delivery_backend.repository.OrderRepository;
 import com.quickbite.food_delivery_backend.repository.RestaurantRepository;
 import com.quickbite.food_delivery_backend.security.RestaurantAccessGuard;
+import com.quickbite.food_delivery_backend.security.SecurityUtils;
 import com.quickbite.food_delivery_backend.security.services.UserDetailsImpl;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,18 +45,18 @@ public class RestaurantController {
         this.accessGuard = accessGuard;
     }
 
-    /** Public catalogue. Summary view only — no menus, no owner. */
+    /**
+     * Public catalogue. Summary view only — no menus, no owner — and approved restaurants only,
+     * so a self-registered restaurant stays invisible until an admin approves it.
+     */
     @GetMapping
-    @Operation(summary = "List restaurants, optionally filtered by category (public)")
+    @Operation(summary = "List approved restaurants, optionally filtered by category (public)")
     public List<RestaurantResponse> getAllRestaurants(@RequestParam(required = false) String category) {
-        if (category != null && !category.isEmpty()) {
-            return restaurantRepository.findByCategoryContainingIgnoreCase(category).stream()
-                    .map(RestaurantResponse::summary)
-                    .collect(Collectors.toList());
-        }
-        return restaurantRepository.findAll().stream()
-                .map(RestaurantResponse::summary)
-                .collect(Collectors.toList());
+        List<Restaurant> found = (category != null && !category.isEmpty())
+                ? restaurantRepository.findByCategoryContainingIgnoreCaseAndApprovedTrue(category)
+                : restaurantRepository.findByApprovedTrue();
+
+        return found.stream().map(RestaurantResponse::summary).collect(Collectors.toList());
     }
 
     /**
@@ -78,13 +79,40 @@ public class RestaurantController {
         return ResponseEntity.ok(RestaurantResponse.detail(restaurant));
     }
 
-    /** Public detail view, including the menu. */
+    /**
+     * Detail view with the menu. Public for approved restaurants; for an unapproved one only
+     * its owner and an admin may look, and everyone else gets a 404 rather than a 403 — a 403
+     * would confirm that the restaurant exists.
+     */
     @GetMapping("/{id}")
-    @Operation(summary = "Restaurant detail with menu (public)")
-    public ResponseEntity<RestaurantResponse> getRestaurantById(@PathVariable Long id) {
-        return restaurantRepository.findById(id)
-                .map(restaurant -> ResponseEntity.ok(RestaurantResponse.detail(restaurant)))
+    @Operation(summary = "Restaurant detail with menu (public once approved)")
+    public ResponseEntity<RestaurantResponse> getRestaurantById(
+            @PathVariable Long id,
+            @AuthenticationPrincipal UserDetailsImpl principal) {
+
+        Restaurant restaurant = restaurantRepository.findById(id)
                 .orElseThrow(() -> ResourceNotFoundException.of("Restaurant", id));
+
+        if (!isVisibleTo(restaurant, principal)) {
+            throw ResourceNotFoundException.of("Restaurant", id);
+        }
+        return ResponseEntity.ok(RestaurantResponse.detail(restaurant));
+    }
+
+    /** Approved restaurants are public; unapproved ones only to their owner or an admin. */
+    private boolean isVisibleTo(Restaurant restaurant, UserDetailsImpl principal) {
+        if (Boolean.TRUE.equals(restaurant.getApproved())) {
+            return true;
+        }
+        if (principal == null) {
+            return false;
+        }
+        if (SecurityUtils.isAdmin(principal)) {
+            return true;
+        }
+        // Reading the id off the lazy owner proxy does not trigger a load.
+        Long ownerId = restaurant.getOwner() != null ? restaurant.getOwner().getId() : null;
+        return ownerId != null && ownerId.equals(principal.getId());
     }
 
     @PutMapping("/{id}")

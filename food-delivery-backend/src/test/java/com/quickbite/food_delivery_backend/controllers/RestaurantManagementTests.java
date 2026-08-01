@@ -2,6 +2,7 @@ package com.quickbite.food_delivery_backend.controllers;
 
 import com.quickbite.food_delivery_backend.ApiTestSupport;
 import com.quickbite.food_delivery_backend.models.EOrderStatus;
+import com.quickbite.food_delivery_backend.models.Restaurant;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -131,6 +132,90 @@ class RestaurantManagementTests extends ApiTestSupport {
         mockMvc.perform(get("/api/restaurants/{id}/orders", restaurant.getId())
                         .header("Authorization", token(customer)))
                 .andExpect(status().isForbidden());
+    }
+
+    // ------------------------------------------------------ approval visibility
+
+    @Test
+    @DisplayName("an unapproved restaurant is hidden from the public list but visible to admin")
+    void unapprovedIsHiddenFromPublicList() throws Exception {
+        Restaurant pending = restaurant("Pending Kitchen", otherOwner, "Burgers", "FREE");
+        pending.setApproved(Boolean.FALSE);
+        restaurantRepository.save(pending);
+
+        // Public catalogue: only the two approved fixtures.
+        mockMvc.perform(get("/api/restaurants"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(2))
+                .andExpect(jsonPath("$[?(@.name=='Pending Kitchen')]").isEmpty());
+
+        // Category filter must apply the same rule.
+        mockMvc.perform(get("/api/restaurants").param("category", "Burgers"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[?(@.name=='Pending Kitchen')]").isEmpty())
+                .andExpect(jsonPath("$[?(@.name=='Test Kitchen')]").isNotEmpty());
+
+        // The admin console still sees it, so it can be approved.
+        mockMvc.perform(get("/api/admin/restaurants").header("Authorization", token(admin)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(3))
+                .andExpect(jsonPath("$[?(@.name=='Pending Kitchen')].approved").value(false));
+    }
+
+    @Test
+    @DisplayName("an unapproved restaurant 404s for the public but opens for its owner and admin")
+    void unapprovedDetailIsScoped() throws Exception {
+        restaurant.setApproved(Boolean.FALSE);
+        restaurantRepository.save(restaurant);
+        Long id = restaurant.getId();
+
+        // 404 rather than 403: a 403 would confirm the restaurant exists.
+        mockMvc.perform(get("/api/restaurants/{id}", id))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get("/api/restaurants/{id}", id).header("Authorization", token(customer)))
+                .andExpect(status().isNotFound());
+        mockMvc.perform(get("/api/restaurants/{id}", id).header("Authorization", token(otherOwner)))
+                .andExpect(status().isNotFound());
+
+        mockMvc.perform(get("/api/restaurants/{id}", id).header("Authorization", token(owner)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("Test Kitchen"));
+        mockMvc.perform(get("/api/restaurants/{id}", id).header("Authorization", token(admin)))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    @DisplayName("an owner still sees their own restaurant via /my while it is pending")
+    void ownerSeesOwnPendingRestaurant() throws Exception {
+        restaurant.setApproved(Boolean.FALSE);
+        restaurantRepository.save(restaurant);
+
+        mockMvc.perform(get("/api/restaurants/my").header("Authorization", token(owner)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id").value(restaurant.getId()))
+                .andExpect(jsonPath("$.approved").value(false))
+                .andExpect(jsonPath("$.menu.length()").value(2));
+    }
+
+    @Test
+    @DisplayName("approving a restaurant makes it appear in the public list")
+    void approvingPublishesIt() throws Exception {
+        Restaurant pending = restaurant("Pending Kitchen", otherOwner, "Pizza", "FREE");
+        pending.setApproved(Boolean.FALSE);
+        restaurantRepository.save(pending);
+
+        mockMvc.perform(get("/api/restaurants"))
+                .andExpect(jsonPath("$.length()").value(2));
+
+        mockMvc.perform(patch("/api/admin/restaurants/{id}/approved", pending.getId())
+                        .header("Authorization", token(admin))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json(Map.of("approved", true))))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(get("/api/restaurants"))
+                .andExpect(jsonPath("$.length()").value(3))
+                .andExpect(jsonPath("$[?(@.name=='Pending Kitchen')]").isNotEmpty());
     }
 
     @Test

@@ -20,6 +20,15 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     @EntityGraph(attributePaths = { "menu" })
     Optional<Restaurant> findById(Long id);
 
+    /**
+     * Public catalogue queries filter on approved. Note `= true` also excludes NULL, so a row
+     * written before the column existed stays hidden until an admin approves it explicitly.
+     */
+    List<Restaurant> findByApprovedTrue();
+
+    List<Restaurant> findByCategoryContainingIgnoreCaseAndApprovedTrue(String category);
+
+    /** Unfiltered — used by the admin console, which must see pending restaurants. */
     List<Restaurant> findByCategoryContainingIgnoreCase(String category);
 
     Optional<Restaurant> findByName(String name);

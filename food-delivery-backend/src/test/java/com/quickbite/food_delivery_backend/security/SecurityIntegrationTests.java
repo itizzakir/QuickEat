@@ -72,6 +72,8 @@ class SecurityIntegrationTests {
         restaurant.setCategory("Burgers");
         restaurant.setOwner(owner);
         restaurant.setRating(4.2);
+        // The public catalogue only lists approved restaurants.
+        restaurant.setApproved(Boolean.TRUE);
         restaurant = restaurantRepository.save(restaurant);
 
         burger = persistMenuItem("Test Burger", 250.0);
@@ -259,6 +261,7 @@ class SecurityIntegrationTests {
         Restaurant other = new Restaurant();
         other.setName("Other Kitchen");
         other.setOwner(owner);
+        other.setApproved(Boolean.TRUE);
         other = restaurantRepository.save(other);
 
         MenuItem otherItem = new MenuItem();
